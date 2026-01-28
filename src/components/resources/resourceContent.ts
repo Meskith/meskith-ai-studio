@@ -941,6 +941,356 @@ export const resourceContents: Record<string, ResourceContent> = {
       "Schedule a 30-minute 'content hour' at the same time each week—routine beats motivation."
     ],
     nextAction: "Log in and generate localized variants for your calendar—attach AI-created assets directly to each row."
+  },
+
+  "cultural-cue-framework": {
+    id: "cultural-cue-framework",
+    title: "Cultural Cue Framework",
+    tag: "Framework",
+    readTime: "3 min read",
+    quickStart: [
+      "Pull up any ad creative you want to evaluate for cultural fit",
+      "Score it across the 5 cue categories below (0-2 points each)",
+      "A score under 6/10 means the ad will feel generic—time to localize"
+    ],
+    sections: [
+      {
+        title: "When to Use This Framework",
+        type: "bullets",
+        items: [
+          "Before launching an ad in a new market—check if it actually feels local",
+          "When repurposing existing creative for different regions",
+          "During creative reviews to give specific, actionable feedback on cultural fit"
+        ]
+      },
+      {
+        title: "The 5 Cultural Cue Categories",
+        type: "steps",
+        items: [
+          "Language Cues — Does the copy use local expressions, idioms, or cultural references? Is the formality level appropriate? Score 0 if generic English, 1 if localized vocabulary, 2 if natural local flow.",
+          "Visual Context — Do the images, settings, and people feel familiar to the target audience? Are backgrounds, clothing, and environments recognizable? Score 0 if stock/foreign, 1 if neutral, 2 if distinctly local.",
+          "Social Proof — Are testimonials, numbers, and trust signals locally relevant? Do they reference local communities, institutions, or recognizable figures? Score 0 if absent/generic, 1 if somewhat local, 2 if highly specific.",
+          "Offer Mechanics — Are pricing, payment methods, and deal structures locally optimized? Does the urgency framing match cultural buying patterns? Score 0 if copy-paste from another market, 1 if partially adapted, 2 if fully localized.",
+          "CTA Channel — Does the call-to-action direct users to locally preferred platforms? WhatsApp for Kenya, direct purchase for UAE, lead forms for Canada? Score 0 if mismatched, 1 if acceptable, 2 if optimal."
+        ]
+      },
+      {
+        title: "Scoring Interpretation",
+        type: "examples",
+        items: [
+          "0-3 Points: Generic — This ad will feel foreign. Major rework needed across multiple categories.",
+          "4-5 Points: Weak — Some local elements present but not enough to resonate. Targeted improvements needed.",
+          "6-7 Points: Solid — Feels locally relevant. Minor tweaks to maximize impact.",
+          "8-10 Points: Strong — Authentic local experience. Ready to launch or optimize for performance."
+        ]
+      },
+      {
+        title: "Example: Kenya vs UAE Comparison",
+        type: "examples",
+        items: [
+          "KENYA AD (Score: 8/10) — Language: Uses 'Karibu' greeting, conversational Swahili-English mix (2). Visual: Nairobi street scene, diverse skin tones, warm lighting (2). Social Proof: 'Join 10,000+ Kenyans' with local testimonial names (2). Offer: M-Pesa payment, payday-timed discount (2). CTA: WhatsApp click-to-chat (0 - could add better local CTA).",
+          "UAE AD (Score: 4/10, needs work) — Language: Generic English, no Arabic option (0). Visual: Stock lifestyle photo, could be anywhere (1). Social Proof: '5-star reviews' without local context (1). Offer: USD pricing, standard discount (1). CTA: Standard 'Shop Now' button (1). Recommendation: Add Arabic headline, use Dubai skyline, convert to AED, emphasize premium/exclusive positioning."
+        ]
+      },
+      {
+        title: "Quick Audit Checklist",
+        type: "checklist",
+        items: [
+          "Language: Local expressions or cultural references present",
+          "Language: Formality level matches market expectations",
+          "Visual: Settings and people feel familiar to target audience",
+          "Visual: Colors and aesthetics align with local preferences",
+          "Social Proof: Numbers reference local community size",
+          "Social Proof: Testimonials use locally recognizable names/titles",
+          "Offer: Currency and payment methods localized",
+          "Offer: Urgency framing matches cultural buying patterns",
+          "CTA: Directs to locally preferred platform",
+          "Overall: Score at least 6/10 before launching"
+        ]
+      }
+    ],
+    commonMistakes: [
+      "Assuming English is 'universal'—even English-speaking markets have distinct vocabulary and tone preferences",
+      "Using stock photography and expecting it to feel local—audiences can spot generic imagery instantly",
+      "Localizing only one category—a Swahili headline with a foreign-looking image creates dissonance",
+      "Over-scoring your own work—get a second opinion from someone familiar with the target market",
+      "Treating localization as translation—cultural cues go far beyond language"
+    ],
+    proTips: [
+      "Create a 'cue library' for each market—save examples of local ads that score 8+ to use as reference.",
+      "When in doubt, lean into visual context first—it's the fastest way to signal 'this is for you' before anyone reads a word.",
+      "Test borderline scores (5-6) against properly localized versions—the performance difference often justifies the extra effort."
+    ],
+    nextAction: "Log in and score your next 3 ad variants using this framework—identify which cues need the most attention."
+  },
+
+  "offer-localization-framework": {
+    id: "offer-localization-framework",
+    title: "Offer Localization Framework",
+    tag: "Framework",
+    readTime: "4 min read",
+    quickStart: [
+      "Start with your current offer structure (price, bundle, urgency, guarantee)",
+      "Walk through the 6-step method below to adapt it for your target market",
+      "Test the localized offer against your control to measure impact"
+    ],
+    sections: [
+      {
+        title: "When to Use This Framework",
+        type: "bullets",
+        items: [
+          "When entering a new market with an existing product/offer",
+          "When your conversion rate is lower in one market compared to others",
+          "When localizing a campaign and you need to adapt more than just copy"
+        ]
+      },
+      {
+        title: "The 6-Step Offer Localization Method",
+        type: "steps",
+        items: [
+          "Set the Anchor — What's the perceived value in this market? A $99 product might feel premium in Kenya, mid-range in Canada, and budget in UAE. Research local competitors to understand price positioning before setting your anchor.",
+          "Frame Affordability — Adapt how the price is presented. Use installments ('Only KES 500/week for 4 weeks') in price-sensitive markets. Emphasize value-per-use in premium markets. Compare to local alternatives ('Less than your daily coffee').",
+          "Structure the Bundle — What's included matters differently per market. Kenya: Add practical bonuses (guides, templates). UAE: Add exclusive/premium extras (early access, concierge support). Canada: Add convenience (free shipping, easy returns).",
+          "Choose Urgency Type — Different markets respond to different urgency cues. Scarcity ('Only 10 left') works in competitive markets. Time-bound ('Ends Friday') works universally. Social proof urgency ('47 people bought today') works in community-driven markets.",
+          "Calibrate Risk Reversal — What makes buyers feel safe varies. Kenya: Payment-after-delivery, M-Pesa protection. UAE: Easy returns, brand reputation emphasis. Canada: Money-back guarantees, reviews from verified buyers.",
+          "Optimize Payment/Fulfillment — Remove friction at checkout. Offer local payment methods (M-Pesa, Tabby, Interac). Display prices in local currency. Be transparent about delivery times and any import considerations."
+        ]
+      },
+      {
+        title: "Example: Same Product, Different Markets",
+        type: "examples",
+        items: [
+          "CANADA OFFER — Product: Online Course ($149 CAD). Anchor: 'Normally $299—50% off this week.' Affordability: '3 payments of $49.67' with Afterpay. Bundle: Course + templates + private community + 1 coaching call. Urgency: 'Enrollment closes Sunday at midnight.' Risk Reversal: '30-day money-back guarantee, no questions asked.' Payment: Credit card, PayPal, Afterpay. Delivery: Instant access + physical workbook shipped free.",
+          "KENYA OFFER — Product: Same Online Course (KES 12,000). Anchor: 'KES 12,000 (valued at KES 25,000).' Affordability: 'Pay KES 3,000 x 4 weeks via M-Pesa.' Bundle: Course + Swahili summary guides + WhatsApp support group + local case studies. Urgency: 'Join 200+ Kenyan professionals already enrolled.' Risk Reversal: 'Preview first module free before paying.' Payment: M-Pesa, Airtel Money. Delivery: Mobile-optimized access + downloadable PDFs for offline viewing."
+        ]
+      },
+      {
+        title: "Offer Mismatch Diagnostic Checklist",
+        type: "checklist",
+        items: [
+          "Price anchor feels appropriate for local market",
+          "Affordability framing reduces perceived cost barrier",
+          "Bundle contents match what local buyers value",
+          "Urgency type resonates with local buying behavior",
+          "Risk reversal addresses local trust concerns",
+          "Payment methods include local favorites",
+          "Currency displayed in local format",
+          "Delivery expectations clearly set and realistic",
+          "Offer tested against a control variant"
+        ]
+      },
+      {
+        title: "Market-Specific Offer Patterns",
+        type: "examples",
+        items: [
+          "KENYA PATTERNS — Installment plans outperform single payments. M-Pesa is essential. Community proof ('Join X Kenyans') builds trust. Practical bonuses (templates, guides) add perceived value. Month-end timing aligns with paydays.",
+          "UAE PATTERNS — Premium positioning outperforms discount-heavy offers. Exclusive access and limited availability create desire. Fast delivery is expected, not a bonus. Arabic option signals respect for local culture. Ramadan/Eid timing drives seasonal spikes.",
+          "CANADA PATTERNS — Free shipping thresholds drive cart size. Subscriptions and loyalty programs build long-term value. Privacy compliance (PIPEDA) mentioned builds trust. French option required for Quebec. Seasonal timing (back-to-school, Black Friday) matters significantly."
+        ]
+      }
+    ],
+    commonMistakes: [
+      "Copy-pasting USD pricing and expecting conversion—local currency display is essential",
+      "Using the same urgency everywhere—scarcity can feel manipulative in some markets, exciting in others",
+      "Offering payment methods that don't work locally—M-Pesa absence in Kenya is a deal-breaker",
+      "Adding 'bonus' content that doesn't resonate—an ebook might excite one market and bore another",
+      "Setting delivery expectations you can't meet—overpromising destroys trust faster than price objections"
+    ],
+    proTips: [
+      "A/B test affordability framing before changing actual price—sometimes '4 payments of X' outperforms a discount.",
+      "Survey customers in each market about what bonuses they'd actually want—assumptions are often wrong.",
+      "Build a 'local checkout flow' screenshot library to see how competitors handle payment and delivery."
+    ],
+    nextAction: "Log in and create 2 offer variants for your next campaign—one for a price-sensitive market and one for a premium market."
+  },
+
+  "hook-to-cta-framework": {
+    id: "hook-to-cta-framework",
+    title: "Hook-to-CTA Framework",
+    tag: "Framework",
+    readTime: "3 min read",
+    quickStart: [
+      "Identify the core action you want the viewer to take (your CTA)",
+      "Work backwards using the structure below to build a compelling path to that action",
+      "Test multiple hook variations while keeping the rest of the structure constant"
+    ],
+    sections: [
+      {
+        title: "When to Use This Framework",
+        type: "bullets",
+        items: [
+          "When writing any ad copy—short-form, long-form, video scripts, or static captions",
+          "When existing ads get views but not clicks—the path from attention to action is broken",
+          "When you need to create multiple variants quickly with consistent structure"
+        ]
+      },
+      {
+        title: "The Hook-to-CTA Structure",
+        type: "steps",
+        items: [
+          "Hook — Stop the scroll in 1-2 seconds. Use curiosity, controversy, or immediate relevance. The hook's only job is to earn the next line.",
+          "Relatable Moment — Connect with the viewer's current reality. Show you understand their situation, frustration, or desire. Build empathy before selling.",
+          "Benefit — What transformation or outcome do you offer? Focus on the result they want, not the features you provide. Make it specific and tangible.",
+          "Proof — Why should they believe you? Use testimonials, numbers, demonstrations, or credentials. Proof turns interest into trust.",
+          "Offer — What exactly are you proposing? Be clear about what they get, what it costs (if applicable), and what makes this special right now.",
+          "CTA — Tell them exactly what to do next. One clear action. Remove ambiguity. Match the CTA to local platform preferences."
+        ]
+      },
+      {
+        title: "10 Hook Starters (Fill in the Blanks)",
+        type: "bullets",
+        items: [
+          "\"Stop [doing X] if you want [desired outcome].\"",
+          "\"I [achieved result] in [timeframe]—here's how.\"",
+          "\"The #1 mistake [target audience] make with [topic].\"",
+          "\"What nobody tells you about [topic/industry].\"",
+          "\"[Number] [target audience] are already [doing X]. Are you?\"",
+          "\"This [product/strategy] changed everything for me.\"",
+          "\"POV: You finally [achieved desired outcome].\"",
+          "\"If you're [pain point], you need to see this.\"",
+          "\"[Authority figure] says [contrarian statement].\"",
+          "\"[Surprising statistic] about [topic] will shock you.\""
+        ]
+      },
+      {
+        title: "Example: UAE Bilingual Ad",
+        type: "examples",
+        items: [
+          "HOOK (English + Arabic): 'Your skincare routine is missing this. روتينك ناقص شي مهم.' — Uses bilingual approach to maximize reach, creates curiosity gap.",
+          "RELATABLE MOMENT: 'You've tried the expensive creams. The trending serums. Still waking up to dull skin.' — Connects with frustration of high-effort, low-result skincare.",
+          "BENEFIT: 'Wake up to glass skin—without a 10-step routine.' — Specific, desirable outcome. Addresses effort objection.",
+          "PROOF: 'Over 5,000 women across Dubai and Abu Dhabi have made the switch. See their results.' — Local social proof + invitation to see evidence.",
+          "OFFER: 'Try our Glow Kit for 30 days. If you don't see the difference, full refund.' — Clear offer with risk reversal.",
+          "CTA: 'Tap 'Shop Now' and get free delivery across UAE.' — Clear action + local fulfillment benefit."
+        ]
+      },
+      {
+        title: "Mobile Readability Checklist",
+        type: "checklist",
+        items: [
+          "Hook visible without scrolling (first 125 characters on Instagram)",
+          "Each section 1-2 short sentences max",
+          "Benefit stated within first 3 seconds of read time",
+          "Proof is scannable (numbers, names, specific claims)",
+          "Offer is crystal clear—no confusion about what they get",
+          "CTA uses action verb and matches platform norms",
+          "Text breaks every 2-3 lines for visual breathing room",
+          "No jargon or complex language—8th grade reading level",
+          "Tested by reading aloud—if it stumbles, simplify"
+        ]
+      },
+      {
+        title: "CTA Library by Channel",
+        type: "examples",
+        items: [
+          "WHATSAPP CTAs: 'Message us now to get started.' | 'Tap to chat—we reply in minutes.' | 'Send 'INFO' to get your free guide.'",
+          "WEBSITE CTAs: 'Shop now and get free shipping.' | 'Start your free trial.' | 'See pricing and plans.'",
+          "LEAD FORM CTAs: 'Get your free quote.' | 'Book your spot.' | 'Download the guide.' | 'Join the waitlist.'"
+        ]
+      }
+    ],
+    commonMistakes: [
+      "Writing hooks that are clever but not clear—confusion kills conversion faster than boredom",
+      "Skipping the relatable moment and jumping straight to selling—empathy builds trust",
+      "Stacking multiple CTAs—one clear action outperforms choice paralysis every time",
+      "Using generic proof ('best-selling', 'popular')—specific beats vague",
+      "Writing for desktop when 80%+ will view on mobile—test readability on phone before publishing"
+    ],
+    proTips: [
+      "Write 10 hooks for every ad, pick the top 2 to test. Hook testing is the highest-leverage optimization.",
+      "Read your ad aloud in one breath—if you can't, it's too long. Mobile viewers skim, not read.",
+      "Screenshot competitors' best-performing ads and reverse-engineer their hook-to-CTA structure."
+    ],
+    nextAction: "Log in and generate 3 hook variants for your next campaign using the framework above."
+  },
+
+  "90-second-audit-framework": {
+    id: "90-second-audit-framework",
+    title: "90-Second Audit Framework",
+    tag: "Framework",
+    readTime: "3 min read",
+    quickStart: [
+      "Pull up an underperforming ad (low CTR, low conversion, high cost-per-result)",
+      "Set a 90-second timer and audit in three 30-second phases",
+      "Identify the weakest phase and apply the corresponding fixes"
+    ],
+    sections: [
+      {
+        title: "When to Use This Framework",
+        type: "bullets",
+        items: [
+          "When an ad is live but underperforming and you need to diagnose quickly",
+          "During creative reviews to give fast, actionable feedback",
+          "Before launching—catch problems before spending budget"
+        ]
+      },
+      {
+        title: "The 90-Second Audit (Timer-Based)",
+        type: "steps",
+        items: [
+          "0-30 SECONDS: Clarity Check — Can you answer these instantly: What is being sold? Who is it for? Why should they care? If any answer takes more than 2 seconds to find, the ad lacks clarity. Check: headline, visual, first line of copy.",
+          "30-60 SECONDS: Trust Check — Is there proof? (Testimonials, numbers, demonstrations, credentials) Does it look professional? (Design quality, grammar, brand consistency) Is there risk reversal? (Guarantees, free trials, easy returns)",
+          "60-90 SECONDS: Conversion Path Check — Is the CTA clear and visible? Is there only ONE action to take? Does the CTA match the platform? (WhatsApp for Kenya, direct purchase for UAE, lead form for Canada) Is the landing page/destination aligned with the ad promise?"
+        ]
+      },
+      {
+        title: "If X, Then Y: Quick Fixes",
+        type: "bullets",
+        items: [
+          "If headline is confusing → Rewrite to answer 'What is this and why should I care?' in 8 words or less",
+          "If visual doesn't match message → Use product shot or outcome image that reinforces headline",
+          "If no clear target audience → Add specificity ('For busy parents' not 'For everyone')",
+          "If no proof → Add one testimonial, one number, or one demonstration",
+          "If design looks amateur → Simplify: fewer fonts, more whitespace, consistent colors",
+          "If grammar errors → Fix immediately—errors destroy credibility",
+          "If no risk reversal → Add guarantee, free trial, or easy return policy",
+          "If multiple CTAs → Pick one. Remove the rest.",
+          "If CTA is buried → Make it larger, above the fold, contrasting color",
+          "If CTA doesn't match platform → Change 'Shop Now' to 'Message Us' for WhatsApp markets",
+          "If landing page doesn't match → Update landing page or change ad to match current landing page"
+        ]
+      },
+      {
+        title: "Example: Diagnosing a Failing Kenya Ad",
+        type: "examples",
+        items: [
+          "THE AD: A fitness app promotion with headline 'Get Fit Today', stock gym photo, generic copy about 'premium workouts', CTA 'Download Now' leading to App Store.",
+          "CLARITY AUDIT (0-30s): Headline is vague—'Get Fit' could be any fitness product. Visual is stock photo that feels foreign (Western gym, non-diverse). First line doesn't specify what the app does or who it's for. VERDICT: Fails clarity.",
+          "TRUST AUDIT (30-60s): No testimonials. No user numbers. No local social proof. Design is clean but generic. No risk reversal or free trial mention. VERDICT: Weak trust.",
+          "CONVERSION AUDIT (60-90s): CTA is clear but mismatched—Kenyan users prefer WhatsApp or mobile web over App Store downloads. Landing destination adds friction. VERDICT: Poor conversion path.",
+          "THE FIX: New headline: 'Train like a champion—anywhere in Nairobi.' Visual: Local gym or home workout scene, Kenyan users. Copy: 'Join 15,000+ Kenyans getting fit at home.' Social proof + local testimonial. CTA: 'Start free—pay with M-Pesa' leading to mobile-optimized web signup. Add risk reversal: 'Try 7 days free, cancel anytime.'"
+        ]
+      },
+      {
+        title: "90-Second Audit Checklist",
+        type: "checklist",
+        items: [
+          "Clarity: What's being sold is obvious within 2 seconds",
+          "Clarity: Target audience is specific and identifiable",
+          "Clarity: Value proposition is clear and compelling",
+          "Trust: At least one form of proof is present",
+          "Trust: Design looks professional and on-brand",
+          "Trust: Risk reversal or guarantee mentioned",
+          "Conversion: CTA is clear, visible, and uses action verb",
+          "Conversion: Only ONE action requested",
+          "Conversion: CTA matches local platform preferences",
+          "Conversion: Destination aligns with ad promise"
+        ]
+      }
+    ],
+    commonMistakes: [
+      "Spending too long auditing—90 seconds forces prioritization; if you can't find issues fast, neither can viewers",
+      "Trying to fix everything at once—identify the weakest phase and fix that first",
+      "Assuming the problem is the ad when it's the landing page—always check the full conversion path",
+      "Ignoring platform context—an ad that works on Instagram may fail on TikTok due to different user expectations",
+      "Skipping the audit before launch—it's much cheaper to catch problems before spending ad budget"
+    ],
+    proTips: [
+      "Record yourself doing the audit aloud—you'll catch more issues when you verbalize your thoughts.",
+      "Keep a 'before/after' swipe file of ads you've fixed—patterns emerge that speed up future audits.",
+      "Audit competitor ads with this framework to understand why their best performers work."
+    ],
+    nextAction: "Log in and audit your next 3 ad variants in under 5 minutes—apply the quick fixes before launching."
   }
 };
 
@@ -953,5 +1303,9 @@ export const titleToContentId: Record<string, string> = {
   "Campaign Brief Template": "campaign-brief-template",
   "Ad Copy Template Pack": "ad-copy-template-pack",
   "Creative Direction Template": "creative-direction-template",
-  "Content Calendar Template": "content-calendar-template"
+  "Content Calendar Template": "content-calendar-template",
+  "Cultural Cue Framework": "cultural-cue-framework",
+  "Offer Localization Framework": "offer-localization-framework",
+  "Hook-to-CTA Framework": "hook-to-cta-framework",
+  "90-Second Audit Framework": "90-second-audit-framework"
 };
