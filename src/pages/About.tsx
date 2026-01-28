@@ -168,14 +168,15 @@ const About = () => {
               animate={vibeControls}
               style={{
                 background: electricPulse 
-                  ? 'linear-gradient(90deg, hsl(217 91% 60%), hsl(280 90% 60%), hsl(0 84% 55%), hsl(45 100% 60%), hsl(217 91% 60%))'
+                  ? 'linear-gradient(90deg, hsl(217 91% 65%), hsl(280 85% 65%), hsl(0 84% 60%))'
                   : 'linear-gradient(90deg, hsl(217 91% 60%), hsl(0 84% 55%))',
-                backgroundSize: electricPulse ? '200% 100%' : '100% 100%',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                filter: electricPulse ? 'drop-shadow(0 0 20px hsl(280 90% 60% / 0.8)) drop-shadow(0 0 40px hsl(217 91% 60% / 0.6))' : 'drop-shadow(0 0 15px hsl(217 91% 60% / 0.5))',
-                transition: 'filter 0.3s ease, background 0.3s ease',
+                textShadow: electricPulse 
+                  ? '0 0 40px hsl(280 90% 60% / 0.9), 0 0 80px hsl(217 91% 60% / 0.7), 0 0 120px hsl(0 84% 55% / 0.5)'
+                  : '0 0 30px hsl(217 91% 60% / 0.6), 0 0 60px hsl(0 84% 55% / 0.4)',
+                transition: 'text-shadow 0.3s ease',
               }}
             >
               vibe
