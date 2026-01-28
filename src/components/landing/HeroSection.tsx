@@ -7,6 +7,7 @@ import { motion, useAnimationControls } from 'framer-motion';
 
 const HeroSection = () => {
   const [glowActive, setGlowActive] = useState(false);
+  const [swooshKey, setSwooshKey] = useState(0);
   const vibeControls = useAnimationControls();
 
   // Trigger the vibe animation and glow effect
@@ -15,6 +16,7 @@ const HeroSection = () => {
       while (true) {
         await new Promise(resolve => setTimeout(resolve, 2500));
         setGlowActive(true);
+        setSwooshKey(prev => prev + 1); // Redraw swoosh
         await vibeControls.start({
           scale: [1, 1.12, 0.96, 1.08, 1],
           rotate: [0, -4, 4, -2, 0],
@@ -28,7 +30,7 @@ const HeroSection = () => {
   }, [vibeControls]);
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+    <section className="relative min-h-[70vh] flex items-center justify-center pt-24 pb-8 px-6 overflow-hidden">
       {/* Spectrum glow burst effect */}
       <motion.div
         className="absolute inset-0 pointer-events-none z-0"
@@ -105,6 +107,7 @@ const HeroSection = () => {
             
             {/* Animated spectrum swoosh lines */}
             <svg 
+              key={swooshKey}
               className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[140%] h-8 overflow-visible"
               viewBox="0 0 200 30"
               preserveAspectRatio="none"
@@ -146,7 +149,7 @@ const HeroSection = () => {
                 filter="url(#glowFilter)"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               />
               
               {/* Second swoosh line */}
@@ -159,7 +162,7 @@ const HeroSection = () => {
                 filter="url(#glowFilter)"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 0.7 }}
-                transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               />
             </svg>
           </span>
