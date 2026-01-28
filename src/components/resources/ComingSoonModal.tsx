@@ -1,3 +1,4 @@
+// ComingSoonModal component for resources that don't have full content yet
 import { Link } from 'react-router-dom';
 import {
   Dialog,
