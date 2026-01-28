@@ -188,10 +188,12 @@ const HeroSection = () => {
           <Link to="/auth">
             <Button 
               size="lg" 
-              className="bg-gradient-button hover:opacity-90 text-foreground text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(217_91%_60%_/_0.4)] group"
+              className="relative bg-transparent text-white text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 border-0 overflow-hidden before:absolute before:inset-0 before:rounded-full before:p-[2px] before:bg-gradient-button before:-z-10 before:content-[''] after:absolute after:inset-[2px] after:rounded-full after:bg-[#0A0A0A] after:-z-[5] hover:shadow-[0_0_30px_hsl(217_91%_60%_/_0.5),0_0_30px_hsl(0_84%_55%_/_0.4)] group"
             >
-              Start Now
-              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+              <span className="relative z-10 flex items-center">
+                Start Now
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+              </span>
             </Button>
           </Link>
           
