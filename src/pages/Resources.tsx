@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight } from 'lucide-react';
 import ResourceSection from '@/components/resources/ResourceSection';
 import ComingSoonModal from '@/components/resources/ComingSoonModal';
+import ResourceContentModal from '@/components/resources/ResourceContentModal';
 import RequestAccessModal from '@/components/resources/RequestAccessModal';
 
 const playbooks = [
@@ -102,14 +103,27 @@ const examples = [
   }
 ];
 
+// Resources that have full content
+const resourcesWithContent = [
+  "Market Localization Playbook",
+  "Brand Vault Setup Guide",
+  "Ad Creative QA Checklist",
+  "Launch in 7 Days"
+];
+
 const Resources = () => {
+  const [contentModalOpen, setContentModalOpen] = useState(false);
   const [comingSoonOpen, setComingSoonOpen] = useState(false);
   const [selectedResource, setSelectedResource] = useState('');
   const [requestAccessOpen, setRequestAccessOpen] = useState(false);
 
   const handleOpenResource = (title: string) => {
     setSelectedResource(title);
-    setComingSoonOpen(true);
+    if (resourcesWithContent.includes(title)) {
+      setContentModalOpen(true);
+    } else {
+      setComingSoonOpen(true);
+    }
   };
 
   return (
@@ -248,6 +262,12 @@ const Resources = () => {
       <Footer />
 
       {/* Modals */}
+      <ResourceContentModal 
+        open={contentModalOpen} 
+        onOpenChange={setContentModalOpen}
+        resourceTitle={selectedResource}
+      />
+
       <ComingSoonModal 
         open={comingSoonOpen} 
         onOpenChange={setComingSoonOpen}
