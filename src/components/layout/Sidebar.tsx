@@ -2,7 +2,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
 import { 
-  Sparkles, 
   LayoutDashboard, 
   FolderOpen, 
   Megaphone, 
@@ -13,6 +12,7 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import meskithLogo from '@/assets/meskith-logo.png';
 
 const navItems = [
   { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -36,12 +36,14 @@ const Sidebar = () => {
       {/* Logo */}
       <div className="p-6 border-b border-border/50">
         <Link to="/dashboard" className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-gradient-luxury glow-primary">
-            <Sparkles className="w-6 h-6 text-primary-foreground" />
-          </div>
-          {!isCollapsed && (
-            <span className="text-xl font-bold gradient-text">Meskith AI</span>
-          )}
+          <img 
+            src={meskithLogo} 
+            alt="Meskith AI" 
+            className={cn(
+              "transition-all duration-300",
+              isCollapsed ? "h-8 w-8 object-contain" : "h-10"
+            )}
+          />
         </Link>
       </div>
 
