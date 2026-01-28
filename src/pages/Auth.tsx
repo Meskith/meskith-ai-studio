@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Mail, Lock, User, ArrowRight, Loader2 } from 'lucide-react';
-import meskithLogoAlt from '@/assets/meskith-logo-alt.png';
+import meskithLogo from '@/assets/meskith-logo.png';
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -59,7 +59,7 @@ const Auth = () => {
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-block mb-4">
-            <img src={meskithLogoAlt} alt="Meskith AI" className="h-12 mx-auto" />
+            <img src={meskithLogo} alt="Meskith AI" className="h-12 mx-auto" />
           </div>
           <p className="text-muted-foreground">
             {isLogin ? 'Welcome back to your creative studio' : 'Create your account to get started'}
