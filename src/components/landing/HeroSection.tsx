@@ -1,12 +1,46 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Play, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 
 const HeroSection = () => {
+  const [glowActive, setGlowActive] = useState(false);
+  const secondsControls = useAnimationControls();
+
+  // Trigger the glow animation
+  useEffect(() => {
+    const animateGlow = async () => {
+      while (true) {
+        await new Promise(resolve => setTimeout(resolve, 2500));
+        setGlowActive(true);
+        await secondsControls.start({
+          scale: [1, 1.08, 0.98, 1.04, 1],
+          transition: { duration: 0.6, ease: "easeOut" }
+        });
+        await new Promise(resolve => setTimeout(resolve, 600));
+        setGlowActive(false);
+      }
+    };
+    animateGlow();
+  }, [secondsControls]);
+
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center pt-24 pb-8 px-6 overflow-hidden">
+      {/* Spectrum glow burst effect */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none z-0"
+        animate={glowActive ? {
+          background: [
+            'radial-gradient(circle at 50% 45%, hsl(217 91% 60% / 0) 0%, transparent 30%)',
+            'radial-gradient(circle at 50% 45%, hsl(217 91% 60% / 0.35) 0%, hsl(280 90% 60% / 0.2) 15%, hsl(0 84% 55% / 0.15) 30%, transparent 50%)',
+            'radial-gradient(circle at 50% 45%, hsl(280 90% 60% / 0.25) 0%, hsl(0 84% 55% / 0.15) 20%, transparent 45%)',
+            'radial-gradient(circle at 50% 45%, hsl(217 91% 60% / 0) 0%, transparent 30%)',
+          ]
+        } : {}}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      />
 
       {/* Animated gradient background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -47,13 +81,22 @@ const HeroSection = () => {
           className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight"
         >
           Create Localized Ads{' '}
-          <span className="bg-gradient-to-r from-[hsl(280,90%,60%)] to-[hsl(280,70%,50%)] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[hsl(0,84%,55%)] via-[hsl(280,70%,50%)] to-[hsl(217,91%,60%)] bg-clip-text text-transparent">
             in
           </span>
           <br />
-          <span className="bg-gradient-to-r from-[hsl(0,84%,55%)] to-[hsl(0,70%,45%)] bg-clip-text text-transparent">
+          <motion.span 
+            className="inline-block bg-gradient-luxury bg-clip-text text-transparent"
+            animate={secondsControls}
+            style={{
+              filter: glowActive 
+                ? 'drop-shadow(0 0 25px hsl(280 90% 60%)) drop-shadow(0 0 50px hsl(217 91% 60%)) drop-shadow(0 0 75px hsl(0 84% 55%))'
+                : 'drop-shadow(0 0 12px hsl(217 91% 60% / 0.6))',
+              transition: 'filter 0.3s ease',
+            }}
+          >
             Seconds
-          </span>
+          </motion.span>
         </motion.h1>
         
         {/* Subheadline */}
