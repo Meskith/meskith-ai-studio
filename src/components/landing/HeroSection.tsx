@@ -45,9 +45,12 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight"
         >
-          Create Localized Ads{' '}
+          Meskith AI helps brands go{' '}
           <span className="bg-gradient-luxury bg-clip-text text-transparent">
-            in Seconds
+            global
+          </span>, without losing their{' '}
+          <span className="bg-gradient-luxury bg-clip-text text-transparent">
+            vibe
           </span>
         </motion.h1>
         
