@@ -21,7 +21,7 @@ import Navbar from '@/components/landing/Navbar';
 import Footer from '@/components/landing/Footer';
 
 const About = () => {
-  const [selectedRegion, setSelectedRegion] = useState<'kenya' | 'australia' | 'canada'>('kenya');
+  const [selectedRegion, setSelectedRegion] = useState<'kenya' | 'uae' | 'canada'>('kenya');
   const [electricPulse, setElectricPulse] = useState(false);
   const [swooshKey, setSwooshKey] = useState(0);
   const vibeControls = useAnimationControls();
@@ -50,9 +50,9 @@ const About = () => {
       headline: "Lipa na M-Pesa, Grow Your Hustle",
       description: "M-Pesa integration with Swahili-English code-switching for authentic local engagement."
     },
-    australia: {
-      headline: "Fair Dinkum Deals, Mate",
-      description: "Australian vernacular with laid-back confidence that resonates Down Under."
+    uae: {
+      headline: "Luxury Meets Innovation",
+      description: "Premium positioning with Arabic-English blend that resonates across the Emirates."
     },
     canada: {
       headline: "Sorry, But This Deal's Too Good",
@@ -428,7 +428,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex justify-center gap-3 mb-12"
           >
-            {(['kenya', 'australia', 'canada'] as const).map((region) => (
+            {(['kenya', 'uae', 'canada'] as const).map((region) => (
               <Button
                 key={region}
                 variant={selectedRegion === region ? 'default' : 'outline'}
@@ -493,8 +493,8 @@ const About = () => {
                   title: "Generate",
                   description: selectedRegion === 'kenya'
                     ? regionExamples.kenya.description
-                    : selectedRegion === 'australia'
-                    ? regionExamples.australia.description
+                    : selectedRegion === 'uae'
+                    ? regionExamples.uae.description
                     : regionExamples.canada.description
                 },
                 {
