@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
@@ -22,6 +22,26 @@ import Footer from '@/components/landing/Footer';
 
 const About = () => {
   const [selectedRegion, setSelectedRegion] = useState<'kenya' | 'australia' | 'canada'>('kenya');
+  const [electricPulse, setElectricPulse] = useState(false);
+  const vibeControls = useAnimationControls();
+
+  // Trigger the vibe animation and electric pulse effect
+  useEffect(() => {
+    const animateVibe = async () => {
+      while (true) {
+        await new Promise(resolve => setTimeout(resolve, 2500));
+        setElectricPulse(true);
+        await vibeControls.start({
+          scale: [1, 1.15, 0.95, 1.1, 1],
+          rotate: [0, -5, 5, -3, 0],
+          transition: { duration: 0.6, ease: "easeOut" }
+        });
+        await new Promise(resolve => setTimeout(resolve, 600));
+        setElectricPulse(false);
+      }
+    };
+    animateVibe();
+  }, [vibeControls]);
 
   const regionExamples = {
     kenya: {
@@ -53,6 +73,53 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-foreground relative overflow-hidden">
+      {/* Electric pulse background effect - Apple-style boot animation */}
+      <motion.div
+        className="fixed inset-0 pointer-events-none z-0"
+        animate={electricPulse ? {
+          background: [
+            'radial-gradient(circle at 50% 40%, hsl(217 91% 60% / 0) 0%, transparent 30%)',
+            'radial-gradient(circle at 50% 40%, hsl(217 91% 60% / 0.4) 0%, hsl(280 90% 60% / 0.2) 20%, hsl(0 84% 55% / 0.15) 40%, transparent 60%)',
+            'radial-gradient(circle at 50% 40%, hsl(280 90% 60% / 0.3) 0%, hsl(0 84% 55% / 0.2) 30%, hsl(217 91% 60% / 0.1) 50%, transparent 70%)',
+            'radial-gradient(circle at 50% 40%, hsl(0 84% 55% / 0.2) 0%, hsl(217 91% 60% / 0.1) 40%, transparent 80%)',
+            'radial-gradient(circle at 50% 40%, hsl(217 91% 60% / 0) 0%, transparent 30%)',
+          ]
+        } : {}}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      />
+
+      {/* Electric current lines */}
+      {electricPulse && (
+        <>
+          <motion.div
+            className="fixed top-1/3 left-0 right-0 h-[2px] pointer-events-none z-10"
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ 
+              scaleX: [0, 1, 1, 0],
+              opacity: [0, 1, 0.5, 0],
+              background: [
+                'linear-gradient(90deg, transparent, hsl(217 91% 60%), hsl(280 90% 60%), hsl(0 84% 55%), transparent)',
+              ]
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            style={{ transformOrigin: 'center' }}
+          />
+          <motion.div
+            className="fixed top-1/2 left-0 right-0 h-[1px] pointer-events-none z-10"
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ 
+              scaleX: [0, 1, 1, 0],
+              opacity: [0, 0.7, 0.3, 0],
+            }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            style={{ 
+              transformOrigin: 'center',
+              background: 'linear-gradient(90deg, transparent 10%, hsl(280 90% 60% / 0.8) 50%, transparent 90%)'
+            }}
+          />
+        </>
+      )}
+
       {/* Animated background gradient that follows scroll */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
@@ -97,23 +164,22 @@ const About = () => {
             <span className="bg-gradient-luxury bg-clip-text text-transparent glow-text">global</span>
             {' '}without losing their{' '}
             <motion.span 
-              className="bg-gradient-luxury bg-clip-text text-transparent inline-block"
-              animate={{ 
-                scale: [1, 1.1, 1],
-                rotate: [0, -3, 3, -2, 0],
-              }}
-              transition={{ 
-                duration: 0.8, 
-                repeat: Infinity, 
-                repeatDelay: 2,
-                ease: "easeInOut"
-              }}
+              className="inline-block relative"
+              animate={vibeControls}
               style={{
-                textShadow: '0 0 30px hsl(217 91% 60% / 0.6), 0 0 60px hsl(0 84% 55% / 0.4)',
+                background: electricPulse 
+                  ? 'linear-gradient(90deg, hsl(217 91% 60%), hsl(280 90% 60%), hsl(0 84% 55%), hsl(45 100% 60%), hsl(217 91% 60%))'
+                  : 'linear-gradient(90deg, hsl(217 91% 60%), hsl(0 84% 55%))',
+                backgroundSize: electricPulse ? '200% 100%' : '100% 100%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: electricPulse ? 'drop-shadow(0 0 20px hsl(280 90% 60% / 0.8)) drop-shadow(0 0 40px hsl(217 91% 60% / 0.6))' : 'drop-shadow(0 0 15px hsl(217 91% 60% / 0.5))',
+                transition: 'filter 0.3s ease, background 0.3s ease',
               }}
             >
               vibe
-            </motion.span>.
+            </motion.span>
           </motion.h1>
 
           <motion.p
