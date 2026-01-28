@@ -36,15 +36,15 @@
 
     --radius: 0.75rem;
 
-    /* Custom luxury tokens - Cyan/Purple gradient theme */
+    /* Custom luxury tokens - Red/Blue gradient theme (matching logo) */
     --glass-bg: 222 47% 11% / 0.6;
     --glass-border: 217 91% 60% / 0.1;
-    --glow-primary: 180 70% 50% / 0.3;
-    --glow-accent: 280 80% 60% / 0.2;
-    --gradient-start: 180 70% 50%;
-    --gradient-end: 280 80% 60%;
-    --gradient-cyan: 180 70% 50%;
-    --gradient-purple: 280 80% 60%;
+    --glow-primary: 217 91% 60% / 0.3;
+    --glow-accent: 0 84% 55% / 0.2;
+    --gradient-start: 217 91% 60%;
+    --gradient-end: 0 84% 55%;
+    --gradient-blue: 217 91% 60%;
+    --gradient-red: 0 84% 55%;
 
     --sidebar-background: 222 47% 7%;
     --sidebar-foreground: 210 40% 98%;
@@ -147,14 +147,14 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-[hsl(180,70%,50%)] to-[hsl(280,80%,60%)] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[hsl(217,91%,60%)] to-[hsl(0,84%,55%)] bg-clip-text text-transparent;
   }
 
   .glow-text {
     text-shadow: 
-      0 0 20px hsl(180 70% 50% / 0.5),
-      0 0 40px hsl(180 70% 50% / 0.3),
-      0 0 60px hsl(280 80% 60% / 0.2);
+      0 0 20px hsl(217 91% 60% / 0.5),
+      0 0 40px hsl(217 91% 60% / 0.3),
+      0 0 60px hsl(0 84% 55% / 0.2);
   }
 
   .gradient-border {

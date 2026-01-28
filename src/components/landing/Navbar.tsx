@@ -58,7 +58,7 @@ const Navbar = () => {
           </Button>
           
           <Link to="/auth">
-            <Button className="bg-gradient-button hover:opacity-90 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_hsl(180_70%_50%_/_0.3)]">
+            <Button className="bg-gradient-button hover:opacity-90 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_hsl(217_91%_60%_/_0.3)]">
               Start Free Trial
             </Button>
           </Link>

@@ -20,7 +20,7 @@ const HeroSection = () => {
             ease: "easeInOut" 
           }}
           className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full blur-[150px]"
-          style={{ background: 'linear-gradient(180deg, hsl(180 70% 50% / 0.3), hsl(280 80% 60% / 0.2))' }}
+          style={{ background: 'linear-gradient(180deg, hsl(217 91% 60% / 0.3), hsl(0 84% 55% / 0.2))' }}
         />
         <motion.div 
           animate={{ 
@@ -33,7 +33,7 @@ const HeroSection = () => {
             ease: "easeInOut" 
           }}
           className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px]"
-          style={{ background: 'linear-gradient(180deg, hsl(280 80% 60% / 0.25), hsl(180 70% 50% / 0.15))' }}
+          style={{ background: 'linear-gradient(180deg, hsl(0 84% 55% / 0.25), hsl(217 91% 60% / 0.15))' }}
         />
       </div>
       
@@ -71,7 +71,7 @@ const HeroSection = () => {
           <Link to="/auth">
             <Button 
               size="lg" 
-              className="bg-gradient-button hover:opacity-90 text-foreground text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(180_70%_50%_/_0.4)] group"
+              className="bg-gradient-button hover:opacity-90 text-foreground text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(217_91%_60%_/_0.4)] group"
             >
               Start Free Trial
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
