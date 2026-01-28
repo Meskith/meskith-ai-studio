@@ -35,7 +35,7 @@ const CTASection = () => {
                 size="lg" 
                 className="bg-gradient-button hover:opacity-90 text-foreground text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(217_91%_60%_/_0.4)] group"
               >
-                Get Started Free
+                Get Started
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
