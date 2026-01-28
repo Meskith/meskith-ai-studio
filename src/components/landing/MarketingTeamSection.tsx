@@ -80,7 +80,7 @@ const MarketingTeamSection = () => {
                       <mpath href={`#left-path-${index}`} />
                     </animateMotion>
                   </circle>
-                  <path id={`left-path-${index}`} d="M 0 4 L 100 4" fill="none" />
+                  <path id={`left-path-${index}`} d="M 100 4 L 0 4" fill="none" />
                 </svg>
 
                 {/* Capability Card */}
@@ -155,7 +155,7 @@ const MarketingTeamSection = () => {
                       <mpath href={`#right-path-${index}`} />
                     </animateMotion>
                   </circle>
-                  <path id={`right-path-${index}`} d="M 100 4 L 0 4" fill="none" />
+                  <path id={`right-path-${index}`} d="M 0 4 L 100 4" fill="none" />
                 </svg>
 
                 {/* Capability Card */}
