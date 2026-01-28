@@ -94,7 +94,8 @@ export default {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-luxury": "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))",
+        "gradient-luxury": "linear-gradient(135deg, hsl(var(--gradient-blue)), hsl(var(--gradient-red)))",
+        "gradient-glow": "linear-gradient(135deg, hsl(217 91% 60% / 0.4), hsl(0 84% 55% / 0.4))",
       },
     },
   },
