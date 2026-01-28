@@ -1,12 +1,48 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Play, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 
 const HeroSection = () => {
+  const [glowActive, setGlowActive] = useState(false);
+  const vibeControls = useAnimationControls();
+
+  // Trigger the vibe animation and glow effect
+  useEffect(() => {
+    const animateVibe = async () => {
+      while (true) {
+        await new Promise(resolve => setTimeout(resolve, 2500));
+        setGlowActive(true);
+        await vibeControls.start({
+          scale: [1, 1.12, 0.96, 1.08, 1],
+          rotate: [0, -4, 4, -2, 0],
+          transition: { duration: 0.6, ease: "easeOut" }
+        });
+        await new Promise(resolve => setTimeout(resolve, 600));
+        setGlowActive(false);
+      }
+    };
+    animateVibe();
+  }, [vibeControls]);
+
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+      {/* Spectrum glow burst effect */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none z-0"
+        animate={glowActive ? {
+          background: [
+            'radial-gradient(circle at 50% 45%, hsl(217 91% 60% / 0) 0%, transparent 30%)',
+            'radial-gradient(circle at 50% 45%, hsl(217 91% 60% / 0.35) 0%, hsl(280 90% 60% / 0.2) 15%, hsl(0 84% 55% / 0.15) 30%, transparent 50%)',
+            'radial-gradient(circle at 50% 45%, hsl(280 90% 60% / 0.25) 0%, hsl(0 84% 55% / 0.15) 20%, transparent 45%)',
+            'radial-gradient(circle at 50% 45%, hsl(217 91% 60% / 0) 0%, transparent 30%)',
+          ]
+        } : {}}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      />
+
       {/* Animated gradient background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
@@ -49,9 +85,20 @@ const HeroSection = () => {
           <span className="bg-gradient-luxury bg-clip-text text-transparent">
             global
           </span>, without losing their{' '}
-          <span className="bg-gradient-luxury bg-clip-text text-transparent">
+          <motion.span 
+            className="inline-block relative bg-gradient-luxury bg-clip-text text-transparent"
+            animate={vibeControls}
+            style={{
+              fontFamily: "'Harlow Solid', cursive",
+              fontStyle: 'italic',
+              filter: glowActive 
+                ? 'drop-shadow(0 0 25px hsl(280 90% 60%)) drop-shadow(0 0 50px hsl(217 91% 60%)) drop-shadow(0 0 75px hsl(0 84% 55%))'
+                : 'drop-shadow(0 0 12px hsl(217 91% 60% / 0.6))',
+              transition: 'filter 0.3s ease',
+            }}
+          >
             vibe
-          </span>
+          </motion.span>
         </motion.h1>
         
         {/* Subheadline */}
