@@ -91,12 +91,29 @@ const About = () => {
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-            style={{ letterSpacing: '-0.02em' }}
+            style={{ letterSpacing: '-0.02em', fontFamily: "'Product Sans', sans-serif" }}
           >
             Meskith AI helps brands go{' '}
             <span className="bg-gradient-luxury bg-clip-text text-transparent glow-text">global</span>
             —without losing their{' '}
-            <span className="bg-gradient-luxury bg-clip-text text-transparent glow-text">vibe</span>.
+            <motion.span 
+              className="bg-gradient-luxury bg-clip-text text-transparent inline-block"
+              animate={{ 
+                scale: [1, 1.1, 1],
+                rotate: [0, -3, 3, -2, 0],
+              }}
+              transition={{ 
+                duration: 0.8, 
+                repeat: Infinity, 
+                repeatDelay: 2,
+                ease: "easeInOut"
+              }}
+              style={{
+                textShadow: '0 0 30px hsl(217 91% 60% / 0.6), 0 0 60px hsl(0 84% 55% / 0.4)',
+              }}
+            >
+              vibe
+            </motion.span>.
           </motion.h1>
 
           <motion.p

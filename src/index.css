@@ -1,6 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('https://fonts.gstatic.com/s/productsans/v5/N0c8y_dasvG2CzM7DYSc8zYP2s9lhPHlAbAyMdCpIR4.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
 
 /* Meskith AI - Luxury Tech Design System */
 
