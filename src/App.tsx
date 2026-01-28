@@ -7,6 +7,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import About from "./pages/About";
+import Resources from "./pages/Resources";
 import Dashboard from "./pages/Dashboard";
 import BrandVault from "./pages/BrandVault";
 import LocalizationStudio from "./pages/LocalizationStudio";
@@ -25,6 +26,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/brand-vault" element={<BrandVault />} />

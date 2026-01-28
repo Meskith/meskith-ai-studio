@@ -8,6 +8,7 @@ const Navbar = () => {
     { label: 'Product', href: '#features' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'About', href: '/about', isRoute: true },
+    { label: 'Resources', href: '/resources', isRoute: true },
     { label: 'FAQ', href: '#faq' },
   ];
 
