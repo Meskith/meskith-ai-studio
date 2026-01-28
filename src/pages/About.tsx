@@ -24,19 +24,19 @@ const About = () => {
   const [selectedRegion, setSelectedRegion] = useState<'kenya' | 'uae' | 'canada'>('kenya');
   const [electricPulse, setElectricPulse] = useState(false);
   const [swooshKey, setSwooshKey] = useState(0);
-  const [showArabic, setShowArabic] = useState(false);
+  const [showArabic, setShowArabic] = useState(true);
   const vibeControls = useAnimationControls();
 
-  // Toggle Arabic translation for UAE every 5 seconds
+  // Toggle Arabic translation for UAE every 3.5 seconds
   useEffect(() => {
     if (selectedRegion !== 'uae') {
-      setShowArabic(false);
+      setShowArabic(true);
       return;
     }
     
     const interval = setInterval(() => {
       setShowArabic(prev => !prev);
-    }, 5000);
+    }, 3500);
     
     return () => clearInterval(interval);
   }, [selectedRegion]);
