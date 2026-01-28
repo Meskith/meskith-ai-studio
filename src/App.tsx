@@ -7,7 +7,8 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import BrandVault from "./pages/BrandVault";
-import Campaigns from "./pages/Campaigns";
+import LocalizationStudio from "./pages/LocalizationStudio";
+import RevenueFeed from "./pages/RevenueFeed";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,7 +25,8 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/brand-vault" element={<BrandVault />} />
-            <Route path="/campaigns" element={<Campaigns />} />
+            <Route path="/localization-studio" element={<LocalizationStudio />} />
+            <Route path="/revenue-feed" element={<RevenueFeed />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

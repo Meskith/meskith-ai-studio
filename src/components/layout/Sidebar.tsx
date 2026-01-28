@@ -6,6 +6,7 @@ import {
   LayoutDashboard, 
   FolderOpen, 
   Megaphone, 
+  TrendingUp,
   LogOut,
   ChevronLeft,
   ChevronRight
@@ -16,7 +17,8 @@ import { Button } from '@/components/ui/button';
 const navItems = [
   { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { path: '/brand-vault', label: 'Brand Vault', icon: FolderOpen },
-  { path: '/campaigns', label: 'Campaigns', icon: Megaphone },
+  { path: '/localization-studio', label: 'Localization Studio', icon: Megaphone },
+  { path: '/revenue-feed', label: 'Revenue Feed', icon: TrendingUp },
 ];
 
 const Sidebar = () => {
