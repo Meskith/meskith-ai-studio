@@ -86,18 +86,20 @@ const HeroSection = () => {
             global
           </span>, without losing their{' '}
           <motion.span 
-            className="inline-block relative bg-gradient-luxury bg-clip-text text-transparent"
+            className="inline-block relative bg-gradient-luxury bg-clip-text text-transparent px-2 py-4"
             animate={vibeControls}
             style={{
               fontFamily: "'Harlow Solid', cursive",
               fontStyle: 'italic',
+              fontSize: '1.15em',
+              lineHeight: '1.2',
               filter: glowActive 
                 ? 'drop-shadow(0 0 25px hsl(280 90% 60%)) drop-shadow(0 0 50px hsl(217 91% 60%)) drop-shadow(0 0 75px hsl(0 84% 55%))'
                 : 'drop-shadow(0 0 12px hsl(217 91% 60% / 0.6))',
               transition: 'filter 0.3s ease',
             }}
           >
-            vibe
+            Vibe
           </motion.span>
         </motion.h1>
         
