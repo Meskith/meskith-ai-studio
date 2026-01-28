@@ -3,8 +3,10 @@ import DashboardLayout from '@/components/layout/DashboardLayout';
 import FileUploadZone from '@/components/brand-vault/FileUploadZone';
 import VoiceRecorder from '@/components/brand-vault/VoiceRecorder';
 import AssetGrid, { Asset } from '@/components/brand-vault/AssetGrid';
+import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { FolderOpen, Image, Mic, Grid3X3 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { FolderOpen, Image, Mic, Grid3X3, Upload, Plus } from 'lucide-react';
 
 const BrandVault = () => {
   const [assets, setAssets] = useState<Asset[]>([]);
@@ -40,7 +42,6 @@ const BrandVault = () => {
   };
 
   const handleViewAsset = (asset: Asset) => {
-    // For now, just open in a new tab
     window.open(asset.url, '_blank');
   };
 
@@ -53,7 +54,7 @@ const BrandVault = () => {
         {/* Header */}
         <div>
           <h1 className="text-3xl font-bold mb-2 flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-gradient-luxury glow-primary">
+            <div className="p-2.5 rounded-2xl bg-gradient-luxury glow-primary">
               <FolderOpen className="w-6 h-6 text-primary-foreground" />
             </div>
             Brand Vault
@@ -65,49 +66,55 @@ const BrandVault = () => {
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4">
-          <div className="glass rounded-xl p-4 border border-border/50">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-primary/20">
-                <Grid3X3 className="w-5 h-5 text-primary" />
+          <Card className="glass-card group">
+            <CardContent className="p-5">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <Grid3X3 className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold tracking-tight">{assets.length}</p>
+                  <p className="text-sm text-muted-foreground">Total Assets</p>
+                </div>
               </div>
-              <div>
-                <p className="text-2xl font-bold">{assets.length}</p>
-                <p className="text-sm text-muted-foreground">Total Assets</p>
+            </CardContent>
+          </Card>
+          <Card className="glass-card group">
+            <CardContent className="p-5">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-accent/10 group-hover:bg-accent/20 transition-colors">
+                  <Image className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold tracking-tight">{imageCount}</p>
+                  <p className="text-sm text-muted-foreground">Images</p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="glass rounded-xl p-4 border border-border/50">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-accent/20">
-                <Image className="w-5 h-5 text-accent" />
+            </CardContent>
+          </Card>
+          <Card className="glass-card group">
+            <CardContent className="p-5">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <Mic className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold tracking-tight">{audioCount}</p>
+                  <p className="text-sm text-muted-foreground">Voice Notes</p>
+                </div>
               </div>
-              <div>
-                <p className="text-2xl font-bold">{imageCount}</p>
-                <p className="text-sm text-muted-foreground">Images</p>
-              </div>
-            </div>
-          </div>
-          <div className="glass rounded-xl p-4 border border-border/50">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-primary/20">
-                <Mic className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <p className="text-2xl font-bold">{audioCount}</p>
-                <p className="text-sm text-muted-foreground">Voice Notes</p>
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Upload Section */}
         <Tabs defaultValue="photos" className="space-y-6">
-          <TabsList className="glass border border-border/50 p-1">
-            <TabsTrigger value="photos" className="data-[state=active]:bg-primary/20">
+          <TabsList className="glass-card border border-border/50 p-1.5 h-auto">
+            <TabsTrigger value="photos" className="data-[state=active]:bg-primary/20 rounded-lg px-4 py-2.5">
               <Image className="w-4 h-4 mr-2" />
               Product Photos
             </TabsTrigger>
-            <TabsTrigger value="voice" className="data-[state=active]:bg-primary/20">
+            <TabsTrigger value="voice" className="data-[state=active]:bg-primary/20 rounded-lg px-4 py-2.5">
               <Mic className="w-4 h-4 mr-2" />
               Voice Notes
             </TabsTrigger>
@@ -122,14 +129,38 @@ const BrandVault = () => {
           </TabsContent>
         </Tabs>
 
-        {/* Asset Grid */}
+        {/* Asset Grid / Empty State */}
         <div>
           <h2 className="text-xl font-semibold mb-4">Your Assets</h2>
-          <AssetGrid 
-            assets={assets} 
-            onDelete={handleDeleteAsset}
-            onView={handleViewAsset}
-          />
+          
+          {assets.length === 0 ? (
+            <Card className="glass-card">
+              <CardContent className="py-16">
+                <div className="flex flex-col items-center text-center max-w-md mx-auto">
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 bg-gradient-luxury opacity-20 blur-2xl rounded-full" />
+                    <div className="relative p-5 rounded-2xl bg-gradient-luxury/10 border border-primary/20">
+                      <Upload className="w-10 h-10 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">No Assets Yet</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Upload your first product photo or record a voice note to get started building your brand vault.
+                  </p>
+                  <Button className="bg-gradient-luxury hover:opacity-90 glow-primary">
+                    <Plus className="w-4 h-4 mr-2" />
+                    Upload Your First Asset
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ) : (
+            <AssetGrid 
+              assets={assets} 
+              onDelete={handleDeleteAsset}
+              onView={handleViewAsset}
+            />
+          )}
         </div>
       </div>
     </DashboardLayout>
