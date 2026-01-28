@@ -29,11 +29,11 @@ const HowItWorksSection = () => {
       {/* Background gradient orbs */}
       <div 
         className="absolute top-1/2 left-0 w-96 h-96 rounded-full blur-[120px] -translate-y-1/2 opacity-20"
-        style={{ background: 'hsl(180 70% 50%)' }}
+        style={{ background: 'hsl(217 91% 60%)' }}
       />
       <div 
         className="absolute top-1/2 right-0 w-96 h-96 rounded-full blur-[120px] -translate-y-1/2 opacity-15"
-        style={{ background: 'hsl(280 80% 60%)' }}
+        style={{ background: 'hsl(0 84% 55%)' }}
       />
       
       <div className="max-w-5xl mx-auto relative z-10">
@@ -78,7 +78,7 @@ const HowItWorksSection = () => {
                   <motion.div 
                     whileHover={{ scale: 1.05 }}
                     className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-button mb-6 mx-auto"
-                    style={{ boxShadow: '0 0 40px hsl(180 70% 50% / 0.3)' }}
+                    style={{ boxShadow: '0 0 40px hsl(217 91% 60% / 0.3)' }}
                   >
                     <Icon className="w-9 h-9 text-foreground" />
                     

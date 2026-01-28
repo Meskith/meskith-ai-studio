@@ -37,7 +37,7 @@ const LoginSection = () => {
       <div className="absolute inset-0 overflow-hidden">
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-20"
-          style={{ background: 'linear-gradient(180deg, hsl(180 70% 50%), hsl(280 80% 60%))' }}
+          style={{ background: 'linear-gradient(180deg, hsl(217 91% 60%), hsl(0 84% 55%))' }}
         />
       </div>
 
@@ -109,7 +109,7 @@ const LoginSection = () => {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full h-12 rounded-full bg-gradient-button hover:opacity-90 transition-all duration-300 font-semibold text-foreground hover:shadow-[0_0_30px_hsl(180_70%_50%_/_0.4)]"
+              className="w-full h-12 rounded-full bg-gradient-button hover:opacity-90 transition-all duration-300 font-semibold text-foreground hover:shadow-[0_0_30px_hsl(217_91%_60%_/_0.4)]"
             >
               {isLoading ? (
                 <Loader2 className="w-5 h-5 animate-spin" />

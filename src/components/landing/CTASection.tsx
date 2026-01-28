@@ -15,8 +15,8 @@ const CTASection = () => {
           className="glass-card-premium p-12 md:p-16 text-center relative overflow-hidden rounded-3xl"
         >
           {/* Gradient accents */}
-          <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full blur-[100px] opacity-30" style={{ background: 'hsl(180 70% 50%)' }} />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-[100px] opacity-20" style={{ background: 'hsl(280 80% 60%)' }} />
+          <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full blur-[100px] opacity-30" style={{ background: 'hsl(217 91% 60%)' }} />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-[100px] opacity-20" style={{ background: 'hsl(0 84% 55%)' }} />
           
           <div className="relative">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -33,7 +33,7 @@ const CTASection = () => {
             <Link to="/auth">
               <Button 
                 size="lg" 
-                className="bg-gradient-button hover:opacity-90 text-foreground text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(180_70%_50%_/_0.4)] group"
+                className="bg-gradient-button hover:opacity-90 text-foreground text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(217_91%_60%_/_0.4)] group"
               >
                 Get Started Free
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
