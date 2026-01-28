@@ -108,7 +108,11 @@ const resourcesWithContent = [
   "Market Localization Playbook",
   "Brand Vault Setup Guide",
   "Ad Creative QA Checklist",
-  "Launch in 7 Days"
+  "Launch in 7 Days",
+  "Campaign Brief Template",
+  "Ad Copy Template Pack",
+  "Creative Direction Template",
+  "Content Calendar Template"
 ];
 
 const Resources = () => {
