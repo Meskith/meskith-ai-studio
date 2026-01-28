@@ -54,10 +54,9 @@ const MarketingTeamSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                {/* Connector Line with Rail */}
+                {/* Connector Line */}
                 <svg 
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-16 md:w-24 lg:w-32 h-8 overflow-visible"
-                  viewBox="0 0 100 16"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-16 md:w-24 lg:w-32 h-2 overflow-visible"
                   preserveAspectRatio="none"
                 >
                   <defs>
@@ -66,42 +65,22 @@ const MarketingTeamSection = () => {
                       <stop offset="100%" stopColor="hsl(0 84% 55%)" />
                     </linearGradient>
                   </defs>
-                  {/* Rail line (background track) */}
                   <line 
                     x1="0" 
-                    y1="8" 
-                    x2="100" 
-                    y2="8" 
-                    stroke="hsl(217 91% 60% / 0.3)"
-                    strokeWidth="2"
-                  />
-                  {/* Gradient overlay line */}
-                  <line 
-                    x1="0" 
-                    y1="8" 
-                    x2="100" 
-                    y2="8" 
+                    y1="4" 
+                    x2="100%" 
+                    y2="4" 
                     stroke={`url(#left-gradient-${index})`}
                     strokeWidth="2"
                     className="animate-pulse-glow"
                   />
                   {/* Animated dot */}
-                  <circle r="5" fill="hsl(217 91% 60%)" className="animate-pulse-glow" filter="url(#glow-left)">
+                  <circle r="4" fill="hsl(217 91% 60%)" className="animate-pulse-glow">
                     <animateMotion dur="2s" repeatCount="indefinite">
                       <mpath href={`#left-path-${index}`} />
                     </animateMotion>
                   </circle>
-                  <path id={`left-path-${index}`} d="M 0 8 L 100 8" fill="none" />
-                  {/* Glow filter */}
-                  <defs>
-                    <filter id="glow-left" x="-50%" y="-50%" width="200%" height="200%">
-                      <feGaussianBlur stdDeviation="2" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
+                  <path id={`left-path-${index}`} d="M 0 4 L 100 4" fill="none" />
                 </svg>
 
                 {/* Capability Card */}
@@ -150,10 +129,9 @@ const MarketingTeamSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                {/* Connector Line with Rail */}
+                {/* Connector Line */}
                 <svg 
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-16 md:w-24 lg:w-32 h-8 overflow-visible"
-                  viewBox="0 0 100 16"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-16 md:w-24 lg:w-32 h-2 overflow-visible"
                   preserveAspectRatio="none"
                 >
                   <defs>
@@ -162,42 +140,22 @@ const MarketingTeamSection = () => {
                       <stop offset="100%" stopColor="hsl(217 91% 60%)" />
                     </linearGradient>
                   </defs>
-                  {/* Rail line (background track) */}
                   <line 
                     x1="0" 
-                    y1="8" 
-                    x2="100" 
-                    y2="8" 
-                    stroke="hsl(0 84% 55% / 0.3)"
-                    strokeWidth="2"
-                  />
-                  {/* Gradient overlay line */}
-                  <line 
-                    x1="0" 
-                    y1="8" 
-                    x2="100" 
-                    y2="8" 
+                    y1="4" 
+                    x2="100%" 
+                    y2="4" 
                     stroke={`url(#right-gradient-${index})`}
                     strokeWidth="2"
                     className="animate-pulse-glow"
                   />
                   {/* Animated dot */}
-                  <circle r="5" fill="hsl(0 84% 55%)" className="animate-pulse-glow" filter="url(#glow-right)">
+                  <circle r="4" fill="hsl(0 84% 55%)" className="animate-pulse-glow">
                     <animateMotion dur="2s" repeatCount="indefinite">
                       <mpath href={`#right-path-${index}`} />
                     </animateMotion>
                   </circle>
-                  <path id={`right-path-${index}`} d="M 100 8 L 0 8" fill="none" />
-                  {/* Glow filter */}
-                  <defs>
-                    <filter id="glow-right" x="-50%" y="-50%" width="200%" height="200%">
-                      <feGaussianBlur stdDeviation="2" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
+                  <path id={`right-path-${index}`} d="M 100 4 L 0 4" fill="none" />
                 </svg>
 
                 {/* Capability Card */}
