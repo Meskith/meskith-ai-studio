@@ -46,137 +46,106 @@ const MarketingTeamSection = () => {
             viewBox="0 0 800 500"
             preserveAspectRatio="xMidYMid meet"
           >
-            {/* CSS for flowing animation */}
-            <style>
-              {`
-                @keyframes flowOut {
-                  0% { stroke-dashoffset: 0; }
-                  100% { stroke-dashoffset: -40; }
-                }
-                .flow-line {
-                  stroke-dasharray: 6 8;
-                  animation: flowOut 1.5s linear infinite;
-                }
-                @keyframes pulse-dot {
-                  0%, 100% { opacity: 0.5; r: 3; }
-                  50% { opacity: 1; r: 5; }
-                }
-                .pulse-dot {
-                  animation: pulse-dot 2s ease-in-out infinite;
-                }
-              `}
-            </style>
+            {/* Left side lines - Blue gradient */}
+            <motion.path
+              d="M400 250 Q300 250 180 120"
+              stroke="url(#blueGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2 }}
+            />
+            <motion.path
+              d="M400 250 Q280 250 150 250"
+              stroke="url(#blueGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3 }}
+            />
+            <motion.path
+              d="M400 250 Q300 250 180 380"
+              stroke="url(#blueGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4 }}
+            />
+
+            {/* Right side lines - Red gradient */}
+            <motion.path
+              d="M400 250 Q500 250 620 120"
+              stroke="url(#redGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2 }}
+            />
+            <motion.path
+              d="M400 250 Q520 250 650 250"
+              stroke="url(#redGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3 }}
+            />
+            <motion.path
+              d="M400 250 Q500 250 620 380"
+              stroke="url(#redGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4 }}
+            />
+
+            {/* Top line - Mixed gradient */}
+            <motion.path
+              d="M400 250 Q400 150 400 60"
+              stroke="url(#mixedGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.1 }}
+            />
 
             {/* Gradient Definitions */}
             <defs>
-              <linearGradient id="blueGradient" x1="100%" y1="0%" x2="0%" y2="0%">
-                <stop offset="0%" stopColor="hsl(217 91% 60%)" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="hsl(280 70% 50%)" stopOpacity="0.4" />
+              <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="hsl(217 91% 60%)" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="hsl(217 91% 60%)" stopOpacity="0.2" />
               </linearGradient>
               <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(280 70% 50%)" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="hsl(0 84% 55%)" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="hsl(0 84% 55%)" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="hsl(0 84% 55%)" stopOpacity="0.8" />
               </linearGradient>
-              <linearGradient id="topLeftGradient" x1="100%" y1="100%" x2="0%" y2="0%">
+              <linearGradient id="mixedGradient" x1="0%" y1="100%" x2="0%" y2="0%">
                 <stop offset="0%" stopColor="hsl(217 91% 60%)" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="hsl(280 70% 50%)" stopOpacity="0.5" />
-              </linearGradient>
-              <linearGradient id="topRightGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(0 84% 55%)" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="hsl(280 70% 50%)" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="hsl(0 84% 55%)" stopOpacity="0.8" />
               </linearGradient>
             </defs>
 
-            {/* Left side curved lines */}
-            {/* Top left - Create Your Content */}
-            <path
-              d="M400 250 C350 250, 300 200, 250 150 Q220 120, 170 110"
-              stroke="url(#blueGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="flow-line"
-            />
-            {/* Middle left - Analyze & Strategize */}
-            <path
-              d="M400 250 C320 250, 250 250, 170 250"
-              stroke="url(#blueGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="flow-line"
-              style={{ animationDelay: '0.3s' }}
-            />
-            {/* Bottom left - Build Your Brand Identity */}
-            <path
-              d="M400 250 C350 250, 300 300, 250 350 Q220 380, 170 390"
-              stroke="url(#blueGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="flow-line"
-              style={{ animationDelay: '0.6s' }}
-            />
-
-            {/* Right side curved lines */}
-            {/* Top right - Visualize & Create Videos */}
-            <path
-              d="M400 250 C450 250, 500 200, 550 150 Q580 120, 630 110"
-              stroke="url(#redGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="flow-line"
-              style={{ animationDelay: '0.15s' }}
-            />
-            {/* Middle right - Connect Social Media Accounts */}
-            <path
-              d="M400 250 C480 250, 550 250, 630 250"
-              stroke="url(#redGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="flow-line"
-              style={{ animationDelay: '0.45s' }}
-            />
-            {/* Bottom right - Share & Schedule */}
-            <path
-              d="M400 250 C450 250, 500 300, 550 350 Q580 380, 630 390"
-              stroke="url(#redGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="flow-line"
-              style={{ animationDelay: '0.75s' }}
-            />
-
-            {/* Top center lines - curved upward */}
-            <path
-              d="M400 250 C380 200, 360 100, 340 50"
-              stroke="url(#topLeftGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="flow-line"
-              style={{ animationDelay: '0.5s' }}
-            />
-            <path
-              d="M400 250 C420 200, 440 100, 460 50"
-              stroke="url(#topRightGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="flow-line"
-              style={{ animationDelay: '0.7s' }}
-            />
-
-            {/* Pulsing connection dots at endpoints */}
-            <circle cx="170" cy="110" r="4" fill="hsl(217 91% 60%)" className="pulse-dot" />
-            <circle cx="170" cy="250" r="4" fill="hsl(217 91% 60%)" className="pulse-dot" style={{ animationDelay: '0.3s' }} />
-            <circle cx="170" cy="390" r="4" fill="hsl(217 91% 60%)" className="pulse-dot" style={{ animationDelay: '0.6s' }} />
-            <circle cx="630" cy="110" r="4" fill="hsl(0 84% 55%)" className="pulse-dot" style={{ animationDelay: '0.15s' }} />
-            <circle cx="630" cy="250" r="4" fill="hsl(0 84% 55%)" className="pulse-dot" style={{ animationDelay: '0.45s' }} />
-            <circle cx="630" cy="390" r="4" fill="hsl(0 84% 55%)" className="pulse-dot" style={{ animationDelay: '0.75s' }} />
-            <circle cx="340" cy="50" r="4" fill="hsl(280 70% 50%)" className="pulse-dot" style={{ animationDelay: '0.5s' }} />
-            <circle cx="460" cy="50" r="4" fill="hsl(280 70% 50%)" className="pulse-dot" style={{ animationDelay: '0.7s' }} />
-
-            {/* Mid-point dots along curves */}
-            <circle cx="280" cy="180" r="3" fill="hsl(250 80% 55%)" className="pulse-dot" style={{ animationDelay: '0.1s' }} />
-            <circle cx="280" cy="320" r="3" fill="hsl(250 80% 55%)" className="pulse-dot" style={{ animationDelay: '0.4s' }} />
-            <circle cx="520" cy="180" r="3" fill="hsl(330 80% 55%)" className="pulse-dot" style={{ animationDelay: '0.25s' }} />
-            <circle cx="520" cy="320" r="3" fill="hsl(330 80% 55%)" className="pulse-dot" style={{ animationDelay: '0.55s' }} />
+            {/* Connection dots */}
+            <circle cx="180" cy="120" r="4" fill="hsl(217 91% 60%)" />
+            <circle cx="150" cy="250" r="4" fill="hsl(217 91% 60%)" />
+            <circle cx="180" cy="380" r="4" fill="hsl(217 91% 60%)" />
+            <circle cx="620" cy="120" r="4" fill="hsl(0 84% 55%)" />
+            <circle cx="650" cy="250" r="4" fill="hsl(0 84% 55%)" />
+            <circle cx="620" cy="380" r="4" fill="hsl(0 84% 55%)" />
+            <circle cx="400" cy="60" r="4" fill="hsl(0 84% 55%)" />
           </svg>
 
           {/* Central Logo with Glow */}
