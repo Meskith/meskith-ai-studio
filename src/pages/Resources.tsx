@@ -112,7 +112,11 @@ const resourcesWithContent = [
   "Campaign Brief Template",
   "Ad Copy Template Pack",
   "Creative Direction Template",
-  "Content Calendar Template"
+  "Content Calendar Template",
+  "Cultural Cue Framework",
+  "Offer Localization Framework",
+  "Hook-to-CTA Framework",
+  "90-Second Audit Framework"
 ];
 
 const Resources = () => {
