@@ -95,7 +95,7 @@ const About = () => {
           >
             Meskith AI helps brands go{' '}
             <span className="bg-gradient-luxury bg-clip-text text-transparent glow-text">global</span>
-            —without losing their{' '}
+            {' '}without losing their{' '}
             <motion.span 
               className="bg-gradient-luxury bg-clip-text text-transparent inline-block"
               animate={{ 
