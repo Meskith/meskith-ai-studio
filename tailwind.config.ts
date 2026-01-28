@@ -94,8 +94,9 @@ export default {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-luxury": "linear-gradient(135deg, hsl(var(--gradient-blue)), hsl(var(--gradient-red)))",
-        "gradient-glow": "linear-gradient(135deg, hsl(217 91% 60% / 0.4), hsl(0 84% 55% / 0.4))",
+        "gradient-luxury": "linear-gradient(90deg, hsl(var(--gradient-cyan)), hsl(var(--gradient-purple)))",
+        "gradient-glow": "linear-gradient(135deg, hsl(180 70% 50% / 0.3), hsl(280 80% 60% / 0.3))",
+        "gradient-button": "linear-gradient(90deg, hsl(180 70% 50%), hsl(280 80% 60%))",
       },
     },
   },

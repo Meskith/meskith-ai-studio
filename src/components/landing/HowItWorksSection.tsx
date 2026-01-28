@@ -1,4 +1,5 @@
-import { Upload, Sparkles, Rocket } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Upload, Sparkles, Rocket, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const HowItWorksSection = () => {
@@ -26,8 +27,14 @@ const HowItWorksSection = () => {
   return (
     <section id="how-it-works" className="py-24 px-6 relative overflow-hidden">
       {/* Background gradient orbs */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -translate-y-1/2" />
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-destructive/10 rounded-full blur-[120px] -translate-y-1/2" />
+      <div 
+        className="absolute top-1/2 left-0 w-96 h-96 rounded-full blur-[120px] -translate-y-1/2 opacity-20"
+        style={{ background: 'hsl(180 70% 50%)' }}
+      />
+      <div 
+        className="absolute top-1/2 right-0 w-96 h-96 rounded-full blur-[120px] -translate-y-1/2 opacity-15"
+        style={{ background: 'hsl(280 80% 60%)' }}
+      />
       
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div 
@@ -38,7 +45,8 @@ const HowItWorksSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            How It <span className="bg-gradient-luxury bg-clip-text text-transparent">Works</span>
+            How It{' '}
+            <span className="bg-gradient-luxury bg-clip-text text-transparent">Works</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Three simple steps to launch globally-ready campaigns.
@@ -69,7 +77,8 @@ const HowItWorksSection = () => {
                   {/* Icon container */}
                   <motion.div 
                     whileHover={{ scale: 1.05 }}
-                    className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-luxury mb-6 glow-primary mx-auto"
+                    className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-button mb-6 mx-auto"
+                    style={{ boxShadow: '0 0 40px hsl(180 70% 50% / 0.3)' }}
                   >
                     <Icon className="w-9 h-9 text-foreground" />
                     
@@ -90,6 +99,22 @@ const HowItWorksSection = () => {
             })}
           </div>
         </div>
+
+        {/* CTA under steps */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center mt-16"
+        >
+          <Link to="/auth">
+            <span className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all cursor-pointer">
+              Get started now
+              <ArrowRight className="w-4 h-4" />
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
