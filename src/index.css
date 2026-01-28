@@ -18,6 +18,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Harlow Solid';
+  src: url('https://db.onlinewebfonts.com/t/1a2dbe82b686bf4d9b0e1a8e3c1a0f91.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
 /* Meskith AI - Luxury Tech Design System */
 
 @layer base {
