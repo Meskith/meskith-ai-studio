@@ -106,7 +106,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Upload your brand assets, and let Meskith AI generate culturally-tailored ad campaigns for Kenya, Australia, and Canada.
+          Upload your brand assets, and let Meskith AI generate culturally-tailored ad campaigns for Kenya, UAE, and Canada.
         </motion.p>
         
         {/* CTA buttons */}
