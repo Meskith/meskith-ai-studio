@@ -4,10 +4,10 @@ import meskithLogo from '@/assets/meskith-logo.png';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
-  const navLinks = [
+  const navLinks: { label: string; href: string; isRoute?: boolean }[] = [
     { label: 'Product', href: '#features' },
     { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Pricing', href: '#pricing' },
+    { label: 'About', href: '/about', isRoute: true },
     { label: 'FAQ', href: '#faq' },
   ];
 
@@ -29,22 +29,32 @@ const Navbar = () => {
         
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.label}
-              href={link.href}
-              onClick={(e) => {
-                if (link.href === '#features' || link.href === '#how-it-works') {
-                  e.preventDefault();
-                  document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  e.preventDefault();
-                  scrollToLogin();
-                }
-              }}
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium cursor-pointer"
-            >
-              {link.label}
-            </a>
+            link.isRoute ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a 
+                key={link.label}
+                href={link.href}
+                onClick={(e) => {
+                  if (link.href === '#features' || link.href === '#how-it-works') {
+                    e.preventDefault();
+                    document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    e.preventDefault();
+                    scrollToLogin();
+                  }
+                }}
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium cursor-pointer"
+              >
+                {link.label}
+              </a>
+            )
           ))}
         </div>
 
