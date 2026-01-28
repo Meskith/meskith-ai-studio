@@ -46,106 +46,126 @@ const MarketingTeamSection = () => {
             viewBox="0 0 800 500"
             preserveAspectRatio="xMidYMid meet"
           >
-            {/* Left side lines - Blue gradient */}
-            <motion.path
+            {/* CSS for flowing animation */}
+            <style>
+              {`
+                @keyframes flowLeft {
+                  0% { stroke-dashoffset: 0; }
+                  100% { stroke-dashoffset: -30; }
+                }
+                @keyframes flowRight {
+                  0% { stroke-dashoffset: 0; }
+                  100% { stroke-dashoffset: 30; }
+                }
+                @keyframes flowUp {
+                  0% { stroke-dashoffset: 0; }
+                  100% { stroke-dashoffset: 30; }
+                }
+                .flow-left {
+                  stroke-dasharray: 8 6;
+                  animation: flowLeft 1s linear infinite;
+                }
+                .flow-right {
+                  stroke-dasharray: 8 6;
+                  animation: flowRight 1s linear infinite;
+                }
+                .flow-up {
+                  stroke-dasharray: 8 6;
+                  animation: flowUp 1s linear infinite;
+                }
+                @keyframes pulse-dot {
+                  0%, 100% { opacity: 0.6; r: 4; }
+                  50% { opacity: 1; r: 6; }
+                }
+                .pulse-dot {
+                  animation: pulse-dot 2s ease-in-out infinite;
+                }
+              `}
+            </style>
+
+            {/* Left side lines - Blue gradient with flow */}
+            <path
               d="M400 250 Q300 250 180 120"
               stroke="url(#blueGradient)"
               strokeWidth="2"
               fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.2 }}
+              className="flow-left"
             />
-            <motion.path
+            <path
               d="M400 250 Q280 250 150 250"
               stroke="url(#blueGradient)"
               strokeWidth="2"
               fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.3 }}
+              className="flow-left"
+              style={{ animationDelay: '0.2s' }}
             />
-            <motion.path
+            <path
               d="M400 250 Q300 250 180 380"
               stroke="url(#blueGradient)"
               strokeWidth="2"
               fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4 }}
+              className="flow-left"
+              style={{ animationDelay: '0.4s' }}
             />
 
-            {/* Right side lines - Red gradient */}
-            <motion.path
+            {/* Right side lines - Red gradient with flow */}
+            <path
               d="M400 250 Q500 250 620 120"
               stroke="url(#redGradient)"
               strokeWidth="2"
               fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.2 }}
+              className="flow-right"
             />
-            <motion.path
+            <path
               d="M400 250 Q520 250 650 250"
               stroke="url(#redGradient)"
               strokeWidth="2"
               fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.3 }}
+              className="flow-right"
+              style={{ animationDelay: '0.2s' }}
             />
-            <motion.path
+            <path
               d="M400 250 Q500 250 620 380"
               stroke="url(#redGradient)"
               strokeWidth="2"
               fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4 }}
+              className="flow-right"
+              style={{ animationDelay: '0.4s' }}
             />
 
-            {/* Top line - Mixed gradient */}
-            <motion.path
+            {/* Top line - Mixed gradient with flow */}
+            <path
               d="M400 250 Q400 150 400 60"
               stroke="url(#mixedGradient)"
               strokeWidth="2"
               fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.1 }}
+              className="flow-up"
             />
 
             {/* Gradient Definitions */}
             <defs>
-              <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(217 91% 60%)" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="hsl(217 91% 60%)" stopOpacity="0.2" />
+              <linearGradient id="blueGradient" x1="100%" y1="0%" x2="0%" y2="0%">
+                <stop offset="0%" stopColor="hsl(217 91% 60%)" stopOpacity="1" />
+                <stop offset="100%" stopColor="hsl(217 91% 60%)" stopOpacity="0.3" />
               </linearGradient>
               <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(0 84% 55%)" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="hsl(0 84% 55%)" stopOpacity="0.8" />
+                <stop offset="0%" stopColor="hsl(0 84% 55%)" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="hsl(0 84% 55%)" stopOpacity="1" />
               </linearGradient>
               <linearGradient id="mixedGradient" x1="0%" y1="100%" x2="0%" y2="0%">
                 <stop offset="0%" stopColor="hsl(217 91% 60%)" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="hsl(0 84% 55%)" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="hsl(0 84% 55%)" stopOpacity="1" />
               </linearGradient>
             </defs>
 
-            {/* Connection dots */}
-            <circle cx="180" cy="120" r="4" fill="hsl(217 91% 60%)" />
-            <circle cx="150" cy="250" r="4" fill="hsl(217 91% 60%)" />
-            <circle cx="180" cy="380" r="4" fill="hsl(217 91% 60%)" />
-            <circle cx="620" cy="120" r="4" fill="hsl(0 84% 55%)" />
-            <circle cx="650" cy="250" r="4" fill="hsl(0 84% 55%)" />
-            <circle cx="620" cy="380" r="4" fill="hsl(0 84% 55%)" />
-            <circle cx="400" cy="60" r="4" fill="hsl(0 84% 55%)" />
+            {/* Pulsing connection dots */}
+            <circle cx="180" cy="120" r="4" fill="hsl(217 91% 60%)" className="pulse-dot" />
+            <circle cx="150" cy="250" r="4" fill="hsl(217 91% 60%)" className="pulse-dot" style={{ animationDelay: '0.3s' }} />
+            <circle cx="180" cy="380" r="4" fill="hsl(217 91% 60%)" className="pulse-dot" style={{ animationDelay: '0.6s' }} />
+            <circle cx="620" cy="120" r="4" fill="hsl(0 84% 55%)" className="pulse-dot" style={{ animationDelay: '0.15s' }} />
+            <circle cx="650" cy="250" r="4" fill="hsl(0 84% 55%)" className="pulse-dot" style={{ animationDelay: '0.45s' }} />
+            <circle cx="620" cy="380" r="4" fill="hsl(0 84% 55%)" className="pulse-dot" style={{ animationDelay: '0.75s' }} />
+            <circle cx="400" cy="60" r="4" fill="hsl(0 84% 55%)" className="pulse-dot" style={{ animationDelay: '0.9s' }} />
           </svg>
 
           {/* Central Logo with Glow */}
