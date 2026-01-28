@@ -70,7 +70,7 @@ const HowItWorksSection = () => {
                   className="text-center relative"
                 >
                   {/* Step number badge */}
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold text-primary/60 tracking-widest">
+                  <div className="text-xs font-bold text-primary/60 tracking-widest mb-4">
                     STEP {step.number}
                   </div>
                   
