@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import meskithLogo from '@/assets/meskith-logo.png';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/';
+
   const navLinks: { label: string; href: string; isRoute?: boolean }[] = [
     { label: 'Product', href: '#features' },
     { label: 'How It Works', href: '#how-it-works' },
@@ -13,7 +17,21 @@ const Navbar = () => {
   ];
 
   const scrollToLogin = () => {
-    document.getElementById('login')?.scrollIntoView({ behavior: 'smooth' });
+    if (isHomePage) {
+      document.getElementById('login')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/#login');
+    }
+  };
+
+  const handleAnchorClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    if (isHomePage) {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Navigate to home page with the hash
+      navigate('/' + href);
+    }
   };
 
   return (
@@ -42,15 +60,7 @@ const Navbar = () => {
               <a 
                 key={link.label}
                 href={link.href}
-                onClick={(e) => {
-                  if (link.href === '#features' || link.href === '#how-it-works') {
-                    e.preventDefault();
-                    document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    e.preventDefault();
-                    scrollToLogin();
-                  }
-                }}
+                onClick={(e) => handleAnchorClick(e, link.href)}
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium cursor-pointer"
               >
                 {link.label}
