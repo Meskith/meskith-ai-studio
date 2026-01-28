@@ -24,7 +24,22 @@ const About = () => {
   const [selectedRegion, setSelectedRegion] = useState<'kenya' | 'uae' | 'canada'>('kenya');
   const [electricPulse, setElectricPulse] = useState(false);
   const [swooshKey, setSwooshKey] = useState(0);
+  const [showArabic, setShowArabic] = useState(false);
   const vibeControls = useAnimationControls();
+
+  // Toggle Arabic translation for UAE every 5 seconds
+  useEffect(() => {
+    if (selectedRegion !== 'uae') {
+      setShowArabic(false);
+      return;
+    }
+    
+    const interval = setInterval(() => {
+      setShowArabic(prev => !prev);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [selectedRegion]);
 
   // Trigger the vibe animation and electric pulse effect
   useEffect(() => {
@@ -524,9 +539,18 @@ const About = () => {
                           animate={{ opacity: 1, y: 0 }}
                           className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/10"
                         >
-                          <p className="text-sm font-medium text-primary">
-                            "{regionExamples[selectedRegion].headline}"
-                          </p>
+                          <motion.p 
+                            key={`${selectedRegion}-${showArabic}`}
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4 }}
+                            className="text-sm font-medium text-primary"
+                            style={selectedRegion === 'uae' && showArabic ? { fontFamily: "'Noto Sans Arabic', sans-serif", direction: 'rtl' } : {}}
+                          >
+                            "{selectedRegion === 'uae' && showArabic 
+                              ? 'الفخامة تلتقي بالابتكار' 
+                              : regionExamples[selectedRegion].headline}"
+                          </motion.p>
                         </motion.div>
                       )}
                     </GlassCard>
