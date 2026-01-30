@@ -41,8 +41,8 @@ const MarketingTeamSection = () => {
           </p>
         </motion.div>
 
-        {/* Mobile Layout */}
-        <div className="lg:hidden flex flex-col items-center gap-8">
+        {/* Mobile/Tablet Layout */}
+        <div className="md:hidden flex flex-col items-center gap-6">
           {/* Center Logo - Mobile */}
           <div className="relative">
             <div 
@@ -80,7 +80,7 @@ const MarketingTeamSection = () => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:flex relative items-center justify-center min-h-[400px]">
+        <div className="hidden md:flex relative items-center justify-center min-h-[400px]">
           {/* Left Capabilities */}
           <div className="absolute left-16 flex flex-col gap-8 z-20">
             {leftCapabilities.map((capability, index) => (
