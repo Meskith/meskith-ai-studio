@@ -41,39 +41,31 @@ const MarketingTeamSection = () => {
           </p>
         </motion.div>
 
-        {/* Mobile/Tablet Layout */}
+        {/* Mobile/Tablet Layout - Simple List */}
         <div className="md:hidden flex flex-col items-center gap-6">
-          {/* Center Logo - Mobile */}
+          {/* Logo at top */}
           <div className="relative">
             <div 
-              className="absolute inset-0 rounded-full blur-[40px] opacity-60 animate-pulse-glow"
-              style={{ 
-                background: 'linear-gradient(135deg, hsl(217 91% 60%), hsl(0 84% 55%))',
-                transform: 'scale(1.5)'
-              }}
+              className="absolute inset-0 rounded-full blur-[30px] opacity-50"
+              style={{ background: 'linear-gradient(135deg, hsl(217 91% 60%), hsl(0 84% 55%))', transform: 'scale(1.2)' }}
             />
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl glass-card-premium p-3 flex items-center justify-center">
-              <img 
-                src={meskithLogo} 
-                alt="Meskith AI" 
-                className="w-full h-full object-contain"
-              />
+            <div className="relative w-14 h-14 rounded-xl glass-card-premium p-2 flex items-center justify-center">
+              <img src={meskithLogo} alt="Meskith AI" className="w-full h-full object-contain" />
             </div>
           </div>
 
-          {/* All Capabilities - Mobile Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full max-w-md sm:max-w-xl">
+          {/* Capabilities as simple list */}
+          <div className="flex flex-col gap-2.5 w-full max-w-xs">
             {[...leftCapabilities, ...rightCapabilities].map((capability, index) => (
               <motion.div
                 key={capability}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -15 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                transition={{ duration: 0.25, delay: index * 0.04 }}
+                className="glass-card px-4 py-2.5 rounded-lg border border-primary/15 bg-card/50"
               >
-                <div className="glass-card px-4 py-3 rounded-xl border border-primary/20 backdrop-blur-xl bg-card/60 text-center">
-                  <span className="text-sm font-medium">{capability}</span>
-                </div>
+                <span className="text-sm font-medium">{capability}</span>
               </motion.div>
             ))}
           </div>
