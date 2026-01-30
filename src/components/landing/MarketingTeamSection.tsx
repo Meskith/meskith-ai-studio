@@ -41,10 +41,48 @@ const MarketingTeamSection = () => {
           </p>
         </motion.div>
 
-        {/* Main Content - Logo Center with Capabilities */}
-        <div className="relative flex items-center justify-center min-h-[400px]">
+        {/* Mobile Layout */}
+        <div className="lg:hidden flex flex-col items-center gap-8">
+          {/* Center Logo - Mobile */}
+          <div className="relative">
+            <div 
+              className="absolute inset-0 rounded-full blur-[40px] opacity-60 animate-pulse-glow"
+              style={{ 
+                background: 'linear-gradient(135deg, hsl(217 91% 60%), hsl(0 84% 55%))',
+                transform: 'scale(1.5)'
+              }}
+            />
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl glass-card-premium p-3 flex items-center justify-center">
+              <img 
+                src={meskithLogo} 
+                alt="Meskith AI" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+
+          {/* All Capabilities - Mobile Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full max-w-md sm:max-w-xl">
+            {[...leftCapabilities, ...rightCapabilities].map((capability, index) => (
+              <motion.div
+                key={capability}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+              >
+                <div className="glass-card px-4 py-3 rounded-xl border border-primary/20 backdrop-blur-xl bg-card/60 text-center">
+                  <span className="text-sm font-medium">{capability}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex relative items-center justify-center min-h-[400px]">
           {/* Left Capabilities */}
-          <div className="absolute left-0 md:left-8 lg:left-16 flex flex-col gap-8 z-20">
+          <div className="absolute left-16 flex flex-col gap-8 z-20">
             {leftCapabilities.map((capability, index) => (
               <motion.div
                 key={capability}
@@ -56,7 +94,7 @@ const MarketingTeamSection = () => {
               >
                 {/* Connector Line */}
                 <svg 
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-16 md:w-24 lg:w-32 h-2 overflow-visible"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-32 h-2 overflow-visible"
                   preserveAspectRatio="none"
                 >
                   <defs>
@@ -85,7 +123,7 @@ const MarketingTeamSection = () => {
 
                 {/* Capability Card */}
                 <div className="glass-card px-5 py-3 rounded-xl border border-primary/20 backdrop-blur-xl bg-card/60 hover:border-primary/40 transition-all duration-300 hover:scale-105">
-                  <span className="text-sm md:text-base font-medium whitespace-nowrap">{capability}</span>
+                  <span className="text-base font-medium whitespace-nowrap">{capability}</span>
                 </div>
               </motion.div>
             ))}
@@ -109,7 +147,7 @@ const MarketingTeamSection = () => {
             />
             
             {/* Logo container */}
-            <div className="relative w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-2xl glass-card-premium p-4 flex items-center justify-center">
+            <div className="relative w-40 h-40 rounded-2xl glass-card-premium p-4 flex items-center justify-center">
               <img 
                 src={meskithLogo} 
                 alt="Meskith AI" 
@@ -119,7 +157,7 @@ const MarketingTeamSection = () => {
           </motion.div>
 
           {/* Right Capabilities */}
-          <div className="absolute right-0 md:right-8 lg:right-16 flex flex-col gap-8 z-20">
+          <div className="absolute right-16 flex flex-col gap-8 z-20">
             {rightCapabilities.map((capability, index) => (
               <motion.div
                 key={capability}
@@ -131,7 +169,7 @@ const MarketingTeamSection = () => {
               >
                 {/* Connector Line */}
                 <svg 
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-16 md:w-24 lg:w-32 h-2 overflow-visible"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-32 h-2 overflow-visible"
                   preserveAspectRatio="none"
                 >
                   <defs>
@@ -160,7 +198,7 @@ const MarketingTeamSection = () => {
 
                 {/* Capability Card */}
                 <div className="glass-card px-5 py-3 rounded-xl border border-primary/20 backdrop-blur-xl bg-card/60 hover:border-primary/40 transition-all duration-300 hover:scale-105">
-                  <span className="text-sm md:text-base font-medium whitespace-nowrap">{capability}</span>
+                  <span className="text-base font-medium whitespace-nowrap">{capability}</span>
                 </div>
               </motion.div>
             ))}
