@@ -3,9 +3,23 @@ import meskithLogo from '@/assets/meskith-logo.png';
 
 const Footer = () => {
   const footerLinks = {
-    Product: ['Features', 'Pricing', 'Integrations', 'API'],
-    Company: ['About', 'Blog', 'Careers', 'Contact'],
-    Legal: ['Privacy', 'Terms', 'Security'],
+    Product: [
+      { label: 'Features', to: '/about' },
+      { label: 'Pricing', href: '#' },
+      { label: 'Integrations', href: '#' },
+      { label: 'API', href: '#' },
+    ],
+    Company: [
+      { label: 'About', to: '/about' },
+      { label: 'Resources', to: '/resources' },
+      { label: 'Careers', href: '#' },
+      { label: 'Contact', href: '#' },
+    ],
+    Legal: [
+      { label: 'Privacy', href: '#' },
+      { label: 'Terms', href: '#' },
+      { label: 'Security', href: '#' },
+    ],
   };
 
   return (
@@ -28,13 +42,22 @@ const Footer = () => {
               <h4 className="font-semibold mb-4 text-sm">{category}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a 
-                      href="#" 
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    {link.to ? (
+                      <Link 
+                        to={link.to}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a 
+                        href={link.href} 
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
