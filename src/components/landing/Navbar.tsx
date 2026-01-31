@@ -122,7 +122,19 @@ const Navbar = () => {
           </Button>
           
           <Link to="/auth">
-            <Button className="relative bg-transparent text-white rounded-full transition-all duration-300 hover:scale-105 border-0 overflow-hidden before:absolute before:inset-0 before:rounded-full before:p-[2px] before:bg-gradient-button before:-z-10 before:content-[''] after:absolute after:inset-[2px] after:rounded-full after:bg-[#0A0A0A] after:-z-[5] hover:shadow-[0_0_25px_hsl(217_91%_60%_/_0.4),0_0_25px_hsl(0_84%_55%_/_0.3)] text-sm px-4 py-2">
+            <Button className="relative bg-transparent text-white rounded-full transition-all duration-300 hover:scale-105 border-0 overflow-hidden text-sm px-4 py-2">
+              {/* Animated rotating gradient border */}
+              <span className="absolute inset-0 rounded-full p-[2px] overflow-hidden">
+                <span 
+                  className="absolute inset-[-50%] animate-[spin_3s_linear_infinite]"
+                  style={{
+                    background: 'conic-gradient(from 0deg, hsl(217 91% 60%), hsl(280 70% 50%), hsl(0 84% 55%), hsl(217 91% 60%))',
+                  }}
+                />
+              </span>
+              {/* Inner background */}
+              <span className="absolute inset-[2px] rounded-full bg-[#0A0A0A]" />
+              {/* Content */}
               <span className="relative z-10">Start Now</span>
             </Button>
           </Link>

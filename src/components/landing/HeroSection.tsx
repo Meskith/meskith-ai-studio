@@ -119,8 +119,20 @@ const HeroSection = () => {
           <Link to="/auth">
             <Button 
               size="lg" 
-              className="relative bg-transparent text-white text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 border-0 overflow-hidden before:absolute before:inset-0 before:rounded-full before:p-[2px] before:bg-gradient-button before:-z-10 before:content-[''] after:absolute after:inset-[2px] after:rounded-full after:bg-[#0A0A0A] after:-z-[5] hover:shadow-[0_0_30px_hsl(217_91%_60%_/_0.5),0_0_30px_hsl(0_84%_55%_/_0.4)] group"
+              className="relative bg-transparent text-white text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 border-0 overflow-hidden group"
             >
+              {/* Animated rotating gradient border */}
+              <span className="absolute inset-0 rounded-full p-[2px] overflow-hidden">
+                <span 
+                  className="absolute inset-[-50%] animate-[spin_3s_linear_infinite]"
+                  style={{
+                    background: 'conic-gradient(from 0deg, hsl(217 91% 60%), hsl(280 70% 50%), hsl(0 84% 55%), hsl(217 91% 60%))',
+                  }}
+                />
+              </span>
+              {/* Inner background */}
+              <span className="absolute inset-[2px] rounded-full bg-[#0A0A0A]" />
+              {/* Content */}
               <span className="relative z-10 flex items-center">
                 Start Now
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
