@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Navbar from '@/components/landing/Navbar';
 import HeroSection from '@/components/landing/HeroSection';
 import FeaturesSection from '@/components/landing/FeaturesSection';
@@ -11,29 +11,17 @@ import HelloSplash from '@/components/landing/HelloSplash';
 
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
-  const [hasSeenSplash, setHasSeenSplash] = useState(false);
-
-  useEffect(() => {
-    // Check if user has seen splash this session
-    const seen = sessionStorage.getItem('meskith-splash-seen');
-    if (seen) {
-      setShowSplash(false);
-      setHasSeenSplash(true);
-    }
-  }, []);
 
   const handleSplashComplete = () => {
     setShowSplash(false);
-    setHasSeenSplash(true);
-    sessionStorage.setItem('meskith-splash-seen', 'true');
   };
 
   return (
     <>
-      {showSplash && !hasSeenSplash && (
+      {showSplash && (
         <HelloSplash onComplete={handleSplashComplete} />
       )}
-      <div className={`min-h-screen bg-background ${showSplash && !hasSeenSplash ? 'overflow-hidden' : ''}`}>
+      <div className={`min-h-screen bg-background ${showSplash ? 'overflow-hidden' : ''}`}>
         <Navbar />
         <HeroSection />
         <FeaturesSection />
