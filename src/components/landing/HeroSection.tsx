@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Play, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion, useAnimationControls } from 'framer-motion';
 
 const HeroSection = () => {
@@ -140,38 +139,26 @@ const HeroSection = () => {
             </Button>
           </Link>
           
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-6 rounded-full border-border/50 hover:bg-secondary/50 transition-all duration-300 hover:scale-105"
-              >
-                Watch Demo
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="glass-card-premium border-primary/20 max-w-2xl">
-              <DialogHeader>
-                <DialogTitle className="text-xl">See Meskith AI in Action</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-6 pt-4">
-                <div className="aspect-video rounded-lg bg-secondary/50 border border-border/30 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-gradient-button flex items-center justify-center mx-auto mb-4">
-                      <Play className="w-8 h-8 text-foreground" />
-                    </div>
-                    <p className="text-muted-foreground text-sm">Demo video placeholder</p>
-                  </div>
-                </div>
-                <Link to="/auth" className="block">
-                  <Button className="w-full bg-gradient-button hover:opacity-90 rounded-full">
-                    Log in to Get Started
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <Link to="/auth">
+            <Button 
+              size="lg" 
+              className="relative bg-transparent text-white text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 border-0 overflow-hidden group"
+            >
+              {/* Animated rotating gradient border */}
+              <span className="absolute inset-0 rounded-full p-[2px] overflow-hidden">
+                <span 
+                  className="absolute inset-[-50%] animate-[spin_3s_linear_infinite]"
+                  style={{
+                    background: 'conic-gradient(from 0deg, hsl(217 91% 60%), hsl(280 70% 50%), hsl(0 84% 55%), hsl(217 91% 60%))',
+                  }}
+                />
+              </span>
+              {/* Inner background */}
+              <span className="absolute inset-[2px] rounded-full bg-[#0A0A0A]" />
+              {/* Content */}
+              <span className="relative z-10">Log In</span>
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
