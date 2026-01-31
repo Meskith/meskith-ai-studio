@@ -142,14 +142,14 @@ const HeroSection = () => {
           <Link to="/auth">
             <Button 
               size="lg" 
-              className="relative bg-transparent text-white text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 border border-white/40 overflow-hidden group"
+              className="relative bg-transparent text-white text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 border border-white/30 overflow-hidden group"
             >
-              {/* Sweeping light effect - single bright spot traveling around border */}
-              <span className="absolute inset-0 rounded-full overflow-hidden">
+              {/* Sweeping light effect - continuous full rotation */}
+              <span className="absolute inset-[-1px] rounded-full overflow-hidden">
                 <span 
-                  className="absolute inset-[-100%] animate-[spin_4s_linear_infinite]"
+                  className="absolute inset-[-100%] animate-[spin_5s_linear_infinite]"
                   style={{
-                    background: 'conic-gradient(from 0deg, transparent 0deg, transparent 340deg, rgba(255,255,255,0.8) 350deg, white 360deg)',
+                    background: 'conic-gradient(from 0deg, transparent 0%, transparent 85%, rgba(255,255,255,0.6) 92%, white 96%, rgba(255,255,255,0.6) 100%)',
                   }}
                 />
               </span>
