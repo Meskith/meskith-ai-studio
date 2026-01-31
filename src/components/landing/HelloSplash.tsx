@@ -45,17 +45,32 @@ interface HelloSplashProps {
 const HelloSplash = ({ onComplete }: HelloSplashProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
-  const totalDuration = 12000; // 12 seconds
-  const intervalTime = totalDuration / helloTranslations.length;
+  const totalDuration = 8000; // 8 seconds
+  const initialDelay = 1200; // Time for "Hello" to fade in
+  const exitDuration = 1500; // Smooth exit transition
+  const remainingTime = totalDuration - initialDelay - exitDuration;
+  const intervalTime = remainingTime / (helloTranslations.length - 1);
 
   useEffect(() => {
+    // Initial fade in of "Hello"
+    const startTimer = setTimeout(() => {
+      setHasStarted(true);
+    }, initialDelay);
+
+    return () => clearTimeout(startTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => {
         if (prev >= helloTranslations.length - 1) {
           clearInterval(interval);
           setIsExiting(true);
-          setTimeout(onComplete, 1000);
+          setTimeout(onComplete, exitDuration);
           return prev;
         }
         return prev + 1;
@@ -63,7 +78,7 @@ const HelloSplash = ({ onComplete }: HelloSplashProps) => {
     }, intervalTime);
 
     return () => clearInterval(interval);
-  }, [onComplete, intervalTime]);
+  }, [hasStarted, onComplete, intervalTime]);
 
   return (
     <AnimatePresence>
@@ -73,24 +88,36 @@ const HelloSplash = ({ onComplete }: HelloSplashProps) => {
           initial={{ opacity: 1 }}
           exit={{ 
             opacity: 0,
-            scale: 1.1,
+            scale: 1.05,
+            filter: 'blur(20px)',
           }}
-          transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
         >
           {/* Animated gradient background */}
           <motion.div
             className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              background: 'linear-gradient(135deg, hsl(280 70% 45%) 0%, hsl(320 80% 50%) 30%, hsl(217 91% 55%) 70%, hsl(280 60% 50%) 100%)',
+            }}
+          />
+          
+          {/* Secondary animated gradient overlay */}
+          <motion.div
+            className="absolute inset-0"
             animate={{
+              opacity: [0.3, 0.6, 0.3],
               background: [
-                'linear-gradient(135deg, hsl(280 70% 45%) 0%, hsl(320 80% 50%) 30%, hsl(217 91% 55%) 70%, hsl(280 60% 50%) 100%)',
-                'linear-gradient(135deg, hsl(217 91% 55%) 0%, hsl(280 70% 45%) 30%, hsl(0 84% 50%) 70%, hsl(320 80% 50%) 100%)',
-                'linear-gradient(135deg, hsl(0 84% 50%) 0%, hsl(45 90% 55%) 30%, hsl(280 70% 45%) 70%, hsl(217 91% 55%) 100%)',
-                'linear-gradient(135deg, hsl(320 80% 50%) 0%, hsl(217 91% 55%) 30%, hsl(280 70% 45%) 70%, hsl(0 84% 50%) 100%)',
-                'linear-gradient(135deg, hsl(280 70% 45%) 0%, hsl(320 80% 50%) 30%, hsl(217 91% 55%) 70%, hsl(280 60% 50%) 100%)',
+                'linear-gradient(135deg, hsl(217 91% 55%) 0%, hsl(280 70% 45%) 50%, hsl(0 84% 50%) 100%)',
+                'linear-gradient(135deg, hsl(0 84% 50%) 0%, hsl(45 90% 55%) 50%, hsl(280 70% 45%) 100%)',
+                'linear-gradient(135deg, hsl(217 91% 55%) 0%, hsl(280 70% 45%) 50%, hsl(0 84% 50%) 100%)',
               ],
             }}
             transition={{
-              duration: 12,
+              duration: 8,
               repeat: 0,
               ease: 'linear',
             }}
@@ -106,7 +133,7 @@ const HelloSplash = ({ onComplete }: HelloSplashProps) => {
               scale: [1, 1.3, 0.9, 1.2, 1],
             }}
             transition={{
-              duration: 12,
+              duration: 8,
               repeat: 0,
               ease: 'easeInOut',
             }}
@@ -121,37 +148,38 @@ const HelloSplash = ({ onComplete }: HelloSplashProps) => {
               scale: [1.2, 0.9, 1.3, 1, 1.2],
             }}
             transition={{
-              duration: 12,
+              duration: 8,
               repeat: 0,
               ease: 'easeInOut',
             }}
           />
 
-          {/* Hello text with smooth transition */}
+          {/* Hello text */}
           <div className="relative z-10 flex flex-col items-center justify-center min-h-[200px]">
             <AnimatePresence mode="wait">
               <motion.h1
                 key={currentIndex}
-                initial={{ 
+                initial={currentIndex === 0 ? { 
                   opacity: 0, 
-                  y: 40,
-                  scale: 0.8,
-                  filter: 'blur(10px)',
+                  scale: 0.6,
+                  filter: 'blur(30px)',
+                } : { 
+                  opacity: 0, 
+                  scale: 1.1,
+                  filter: 'blur(15px)',
                 }}
                 animate={{ 
                   opacity: 1, 
-                  y: 0, 
                   scale: 1,
                   filter: 'blur(0px)',
                 }}
                 exit={{ 
                   opacity: 0, 
-                  y: -40,
-                  scale: 1.1,
-                  filter: 'blur(10px)',
+                  scale: 0.9,
+                  filter: 'blur(20px)',
                 }}
                 transition={{ 
-                  duration: 0.4, 
+                  duration: currentIndex === 0 ? 1 : 0.25, 
                   ease: [0.4, 0, 0.2, 1],
                 }}
                 className="text-7xl md:text-8xl lg:text-[10rem] font-bold text-white text-center tracking-tight"
@@ -170,7 +198,8 @@ const HelloSplash = ({ onComplete }: HelloSplashProps) => {
             className="absolute bottom-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
           >
             <img 
               src={meskithLogo} 
