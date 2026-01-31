@@ -45,25 +45,25 @@ interface HelloSplashProps {
 const HelloSplash = ({ onComplete }: HelloSplashProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [showText, setShowText] = useState(false);
 
-  const totalDuration = 8000; // 8 seconds
-  const initialDelay = 1200; // Time for "Hello" to fade in
-  const exitDuration = 1500; // Smooth exit transition
-  const remainingTime = totalDuration - initialDelay - exitDuration;
-  const intervalTime = remainingTime / (helloTranslations.length - 1);
+  const totalDuration = 10000; // 10 seconds
+  const initialDelay = 800; // Time before "Hello" appears
+  const exitDuration = 1200; // Smooth exit transition
+  const textCycleDuration = totalDuration - initialDelay - exitDuration;
+  const intervalTime = textCycleDuration / helloTranslations.length;
 
   useEffect(() => {
-    // Initial fade in of "Hello"
-    const startTimer = setTimeout(() => {
-      setHasStarted(true);
+    // Show text after initial delay
+    const showTimer = setTimeout(() => {
+      setShowText(true);
     }, initialDelay);
 
-    return () => clearTimeout(startTimer);
+    return () => clearTimeout(showTimer);
   }, []);
 
   useEffect(() => {
-    if (!hasStarted) return;
+    if (!showText) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => {
@@ -78,7 +78,7 @@ const HelloSplash = ({ onComplete }: HelloSplashProps) => {
     }, intervalTime);
 
     return () => clearInterval(interval);
-  }, [hasStarted, onComplete, intervalTime]);
+  }, [showText, onComplete, intervalTime]);
 
   return (
     <AnimatePresence>
@@ -88,123 +88,158 @@ const HelloSplash = ({ onComplete }: HelloSplashProps) => {
           initial={{ opacity: 1 }}
           exit={{ 
             opacity: 0,
-            scale: 1.05,
-            filter: 'blur(20px)',
+            scale: 1.02,
           }}
-          transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
         >
-          {/* Animated gradient background */}
-          <motion.div
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{
-              background: 'linear-gradient(135deg, hsl(280 70% 45%) 0%, hsl(320 80% 50%) 30%, hsl(217 91% 55%) 70%, hsl(280 60% 50%) 100%)',
-            }}
-          />
-          
-          {/* Secondary animated gradient overlay */}
+          {/* Base gradient background - pink to purple to blue */}
           <motion.div
             className="absolute inset-0"
             animate={{
-              opacity: [0.3, 0.6, 0.3],
               background: [
-                'linear-gradient(135deg, hsl(217 91% 55%) 0%, hsl(280 70% 45%) 50%, hsl(0 84% 50%) 100%)',
-                'linear-gradient(135deg, hsl(0 84% 50%) 0%, hsl(45 90% 55%) 50%, hsl(280 70% 45%) 100%)',
-                'linear-gradient(135deg, hsl(217 91% 55%) 0%, hsl(280 70% 45%) 50%, hsl(0 84% 50%) 100%)',
+                'linear-gradient(135deg, hsl(330 80% 75%) 0%, hsl(280 70% 65%) 35%, hsl(260 80% 60%) 65%, hsl(220 90% 60%) 100%)',
+                'linear-gradient(145deg, hsl(340 75% 70%) 0%, hsl(290 75% 60%) 35%, hsl(250 85% 65%) 65%, hsl(200 85% 55%) 100%)',
+                'linear-gradient(125deg, hsl(320 85% 72%) 0%, hsl(270 80% 62%) 35%, hsl(240 75% 58%) 65%, hsl(210 95% 58%) 100%)',
+                'linear-gradient(135deg, hsl(330 80% 75%) 0%, hsl(280 70% 65%) 35%, hsl(260 80% 60%) 65%, hsl(220 90% 60%) 100%)',
               ],
             }}
             transition={{
-              duration: 8,
+              duration: 10,
               repeat: 0,
               ease: 'linear',
             }}
           />
 
-          {/* Floating orbs */}
+          {/* Large center yellow/lime orb */}
           <motion.div
-            className="absolute w-[500px] h-[500px] rounded-full blur-[120px]"
-            style={{ background: 'hsl(45 93% 60% / 0.35)' }}
+            className="absolute w-[600px] h-[600px] rounded-full"
+            style={{ 
+              background: 'radial-gradient(circle, hsl(65 90% 70% / 0.9) 0%, hsl(65 80% 60% / 0.6) 40%, transparent 70%)',
+              filter: 'blur(60px)',
+            }}
+            initial={{ x: 0, y: 100, scale: 0.8, opacity: 0 }}
             animate={{
-              x: [-150, 150, -100, 150, -150],
-              y: [-80, 100, -50, 80, -80],
-              scale: [1, 1.3, 0.9, 1.2, 1],
+              x: [0, 50, -30, 20, 0],
+              y: [100, 50, 120, 80, 100],
+              scale: [0.8, 1.1, 0.95, 1.05, 1],
+              opacity: [0, 0.9, 0.85, 0.9, 0.85],
             }}
             transition={{
-              duration: 8,
-              repeat: 0,
-              ease: 'easeInOut',
-            }}
-          />
-          
-          <motion.div
-            className="absolute w-[400px] h-[400px] rounded-full blur-[100px]"
-            style={{ background: 'hsl(0 84% 55% / 0.25)' }}
-            animate={{
-              x: [100, -100, 50, -150, 100],
-              y: [50, -80, 100, -50, 50],
-              scale: [1.2, 0.9, 1.3, 1, 1.2],
-            }}
-            transition={{
-              duration: 8,
-              repeat: 0,
+              duration: 10,
               ease: 'easeInOut',
             }}
           />
 
-          {/* Hello text */}
+          {/* Red/coral orb on left */}
+          <motion.div
+            className="absolute w-[400px] h-[400px] rounded-full"
+            style={{ 
+              background: 'radial-gradient(circle, hsl(0 85% 60% / 0.85) 0%, hsl(350 80% 55% / 0.5) 50%, transparent 70%)',
+              filter: 'blur(50px)',
+            }}
+            initial={{ x: -300, y: -50, scale: 0.6, opacity: 0 }}
+            animate={{
+              x: [-300, -250, -320, -280, -300],
+              y: [-50, 0, -80, -30, -50],
+              scale: [0.6, 0.9, 0.8, 0.85, 0.8],
+              opacity: [0, 0.8, 0.75, 0.8, 0.75],
+            }}
+            transition={{
+              duration: 10,
+              ease: 'easeInOut',
+            }}
+          />
+
+          {/* Purple/magenta accent orb */}
+          <motion.div
+            className="absolute w-[350px] h-[350px] rounded-full"
+            style={{ 
+              background: 'radial-gradient(circle, hsl(300 80% 65% / 0.7) 0%, hsl(280 70% 55% / 0.4) 50%, transparent 70%)',
+              filter: 'blur(45px)',
+            }}
+            initial={{ x: 200, y: -150, scale: 0.5, opacity: 0 }}
+            animate={{
+              x: [200, 250, 180, 220, 200],
+              y: [-150, -100, -180, -130, -150],
+              scale: [0.5, 0.8, 0.7, 0.75, 0.7],
+              opacity: [0, 0.7, 0.65, 0.7, 0.65],
+            }}
+            transition={{
+              duration: 10,
+              ease: 'easeInOut',
+            }}
+          />
+
+          {/* Soft white/pink glow at top */}
+          <motion.div
+            className="absolute top-0 left-0 right-0 h-[40%]"
+            style={{ 
+              background: 'linear-gradient(180deg, hsl(330 50% 92% / 0.6) 0%, transparent 100%)',
+            }}
+            animate={{
+              opacity: [0.4, 0.7, 0.5, 0.6, 0.5],
+            }}
+            transition={{
+              duration: 10,
+              ease: 'easeInOut',
+            }}
+          />
+
+          {/* Hello text - dark color like mediakits */}
           <div className="relative z-10 flex flex-col items-center justify-center min-h-[200px]">
             <AnimatePresence mode="wait">
-              <motion.h1
-                key={currentIndex}
-                initial={currentIndex === 0 ? { 
-                  opacity: 0, 
-                  scale: 0.6,
-                  filter: 'blur(30px)',
-                } : { 
-                  opacity: 0, 
-                  scale: 1.1,
-                  filter: 'blur(15px)',
-                }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: 1,
-                  filter: 'blur(0px)',
-                }}
-                exit={{ 
-                  opacity: 0, 
-                  scale: 0.9,
-                  filter: 'blur(20px)',
-                }}
-                transition={{ 
-                  duration: currentIndex === 0 ? 1 : 0.25, 
-                  ease: [0.4, 0, 0.2, 1],
-                }}
-                className="text-7xl md:text-8xl lg:text-[10rem] font-bold text-white text-center tracking-tight"
-                style={{
-                  textShadow: '0 4px 60px rgba(0,0,0,0.4), 0 0 120px rgba(255,255,255,0.1)',
-                  fontFamily: "'Product Sans', sans-serif",
-                }}
-              >
-                {helloTranslations[currentIndex]}
-              </motion.h1>
+              {showText && (
+                <motion.h1
+                  key={currentIndex}
+                  initial={currentIndex === 0 ? { 
+                    opacity: 0, 
+                    scale: 0.7,
+                    y: 30,
+                  } : { 
+                    opacity: 0, 
+                    scale: 1.05,
+                    y: -10,
+                  }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    y: 0,
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    scale: 0.95,
+                    y: 15,
+                  }}
+                  transition={{ 
+                    duration: currentIndex === 0 ? 0.8 : 0.2, 
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                  className="text-7xl md:text-8xl lg:text-[10rem] font-bold text-center tracking-tight"
+                  style={{
+                    color: 'hsl(280 30% 20%)',
+                    textShadow: '0 2px 30px rgba(255,255,255,0.3)',
+                    fontFamily: "'Product Sans', system-ui, sans-serif",
+                    fontWeight: 600,
+                  }}
+                >
+                  {helloTranslations[currentIndex]}
+                </motion.h1>
+              )}
             </AnimatePresence>
           </div>
 
-          {/* Logo at bottom */}
+          {/* Logo at bottom - white */}
           <motion.div
             className="absolute bottom-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
           >
             <img 
               src={meskithLogo} 
               alt="Meskith AI" 
-              className="h-8 md:h-10 w-auto brightness-0 invert opacity-80"
+              className="h-8 md:h-10 w-auto brightness-0 invert opacity-90"
             />
           </motion.div>
         </motion.div>
