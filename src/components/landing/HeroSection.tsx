@@ -144,12 +144,12 @@ const HeroSection = () => {
               size="lg" 
               className="relative bg-transparent text-white text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 border-0 overflow-hidden group"
             >
-              {/* Animated rotating gradient border */}
+              {/* Animated rotating white border - slow continuous */}
               <span className="absolute inset-0 rounded-full p-[2px] overflow-hidden">
                 <span 
-                  className="absolute inset-[-50%] animate-[spin_3s_linear_infinite]"
+                  className="absolute inset-[-50%] animate-[spin_8s_linear_infinite]"
                   style={{
-                    background: 'conic-gradient(from 0deg, hsl(217 91% 60%), hsl(280 70% 50%), hsl(0 84% 55%), hsl(217 91% 60%))',
+                    background: 'conic-gradient(from 0deg, rgba(255,255,255,0.9), rgba(255,255,255,0.3), rgba(255,255,255,0.9))',
                   }}
                 />
               </span>
