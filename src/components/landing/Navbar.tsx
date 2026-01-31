@@ -122,18 +122,23 @@ const Navbar = () => {
           </Button>
           
           <Link to="/auth">
-            <Button className="relative bg-transparent text-white rounded-full transition-all duration-300 hover:scale-105 border-0 overflow-hidden text-sm px-4 py-2">
-              {/* Animated rotating gradient border */}
-              <span className="absolute inset-0 rounded-full p-[2px] overflow-hidden">
+            <Button 
+              className="relative bg-transparent text-white rounded-full transition-all duration-300 hover:scale-105 border-0 overflow-hidden text-sm px-4 py-2"
+              style={{
+                boxShadow: '0 0 0 1px rgba(99, 102, 241, 0.3)',
+              }}
+            >
+              {/* Sweeping gradient light effect - continuous full rotation */}
+              <span className="absolute inset-[-1px] rounded-full overflow-hidden">
                 <span 
-                  className="absolute inset-[-50%] animate-[spin_3s_linear_infinite]"
+                  className="absolute inset-[-100%] animate-[spin_5s_linear_infinite]"
                   style={{
-                    background: 'conic-gradient(from 0deg, hsl(217 91% 60%), hsl(280 70% 50%), hsl(0 84% 55%), hsl(217 91% 60%))',
+                    background: 'conic-gradient(from 0deg, transparent 0%, transparent 80%, hsl(217 91% 60% / 0.6) 85%, hsl(280 70% 50%) 90%, hsl(0 84% 55%) 95%, hsl(217 91% 60% / 0.6) 100%)',
                   }}
                 />
               </span>
               {/* Inner background */}
-              <span className="absolute inset-[2px] rounded-full bg-[#0A0A0A]" />
+              <span className="absolute inset-[1px] rounded-full bg-[#0A0A0A]" />
               {/* Content */}
               <span className="relative z-10">Start Now</span>
             </Button>
